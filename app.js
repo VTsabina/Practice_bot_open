@@ -2,90 +2,29 @@
 // Формат: correct — массив индексов (для multi — несколько, для single — один).
 // type: один из 10 типов (пока условные названия). topic: одна из 9 тем.
 // sr: массив СР, к которым относится. level: basic | advanced.
-const QUESTIONS = [
-  {
-    id: "q1", level: "basic", type: "loops", topic: "basics", sr: ["sr1"],
-    text: "Что выведет код?",
-    code: "for (let i = 0; i < 3; i++) console.log(i);",
-    options: ["0 1 2", "1 2 3", "0 1 2 3", "Ошибка"],
-    correct: [0], multi: false,
-    comment: "Цикл идёт от 0 до 2 включительно."
-  },
-  {
-    id: "q2", level: "basic", type: "types", topic: "basics", sr: ["sr1", "sr2"],
-    text: "Какие из типов являются примитивами в JS? (выбери все)",
-    options: ["number", "object", "string", "boolean"],
-    correct: [0, 2, 3], multi: true,
-    comment: "object — не примитив. Примитивы: number, string, boolean, null, undefined, symbol, bigint."
-  },
-  {
-    id: "q3", level: "basic", type: "arrays", topic: "collections", sr: ["sr2"],
-    text: "Что вернёт [1,2,3].map(x => x * 2)?",
-    options: ["[2,4,6]", "[1,2,3]", "[3,6,9]", "Ошибка"],
-    correct: [0], multi: false,
-    comment: "map возвращает новый массив с результатом применения функции к каждому элементу."
-  },
-  {
-    id: "q4", level: "advanced", type: "loops", topic: "basics", sr: ["sr3"],
-    text: "Что выведет код?",
-    code: "for (var i = 0; i < 3; i++) { setTimeout(() => console.log(i), 0); }",
-    options: ["0 1 2", "3 3 3", "0 0 0", "Ошибка"],
-    correct: [1], multi: false,
-    comment: "var — функциональная область видимости, к моменту вызова setTimeout i уже равно 3."
-  },
-  {
-    id: "q5", level: "advanced", type: "async", topic: "async", sr: ["sr3", "sr4"],
-    text: "Что вернёт fetch(...)?",
-    options: ["Promise", "JSON-объект", "Строку", "Response синхронно"],
-    correct: [0], multi: false,
-    comment: "fetch возвращает Promise, который резолвится в Response."
-  },
-  {
-    id: "q6", level: "advanced", type: "this", topic: "functions", sr: ["sr4"],
-    text: "Чему равно this в стрелочной функции? (выбери все верные)",
-    options: ["Берётся из внешнего контекста", "Зависит от вызова", "Нельзя переопределить через call", "Всегда undefined"],
-    correct: [0, 2], multi: true,
-    comment: "Стрелочные функции не имеют своего this — он лексический и не переопределяется."
-  },
-  {
-    id: "q7", level: "basic", type: "strings", topic: "basics", sr: ["sr1"],
-    text: "Что вернёт 'abc'.toUpperCase()?",
-    options: ["'ABC'", "'abc'", "undefined", "Ошибка"],
-    correct: [0], multi: false,
-    comment: "toUpperCase возвращает новую строку в верхнем регистре."
-  },
-  {
-    id: "q8", level: "advanced", type: "closures", topic: "functions", sr: ["sr3"],
-    text: "Что такое замыкание?",
-    options: [
-      "Функция, запоминающая своё лексическое окружение",
-      "Способ вызвать функцию без аргументов",
-      "Глобальная переменная",
-      "Тип данных"
-    ],
-    correct: [0], multi: false,
-    comment: "Замыкание — функция вместе с её лексическим окружением."
-  }
-];
 
 // Справочники для UI (пока условные)
 const TYPES = [
-  { id: "loops", name: "Циклы" }, { id: "types", name: "Типы данных" },
-  { id: "arrays", name: "Массивы" }, { id: "async", name: "Асинхронность" },
-  { id: "this", name: "this" }, { id: "strings", name: "Строки" },
-  { id: "closures", name: "Замыкания" }, { id: "objects", name: "Объекты" },
-  { id: "functions", name: "Функции" }, { id: "errors", name: "Ошибки" }
+  { id: "true-false", name: "Верно-невернр" }, { id: "mistakes-one", name: "Поиск ошибки (один ответ)" },
+  { id: "mistakes-mult", name: "Поиск ошибок в коде" }, { id: "theory-one", name: "Теория (один ответ)" },
+  { id: "theory-mult", name: "Теория (несколько ответов)" }, { id: "iter-count", name: "Счетчик итераций" },
+  { id: "code-add", name: "Дополнить программу" }, { id: "code-choice", name: "Выбор кода" },
+  { id: "code-read", name: "Чтение кода" }
 ];
 const SRS = [
   { id: "sr1", name: "СР 1" }, { id: "sr2", name: "СР 2" },
   { id: "sr3", name: "СР 3" }, { id: "sr4", name: "СР 4" }
 ];
 const TOPICS = [
-  { id: "basics", name: "Основы" }, { id: "collections", name: "Коллекции" },
-  { id: "async", name: "Асинхронность" }, { id: "functions", name: "Функции" },
-  { id: "oop", name: "ООП" }, { id: "dom", name: "DOM" },
-  { id: "errors", name: "Ошибки" }, { id: "modules", name: "Модули" },
-  { id: "algo", name: "Алгоритмы" }
+  { id: "vars", name: "Переменные и арифметика", short: "Переменные" },
+  { id: "logic", name: "Логика и условия", short: "Логика" },
+  { id: "while", name: "Цикл while", short: "While" },
+  { id: "for", name: "Структуры данных и for", short: "For и структуры" },
+  { id: "methods", name: "Методы", short: "Методы" },
+  { id: "sets", name: "Неупорядоченные типы", short: "Множества" },
+  { id: "nested", name: "Вложенные структуры и сортировки", short: "Вложенные и сортировки" },
+  { id: "funcs", name: "Функции", short: "Функции" },
+  { id: "files", name: "Текстовые файлы и таблицы", short: "Файлы и таблицы" }
 ];
 
 // ============ СОСТОЯНИЕ ============
