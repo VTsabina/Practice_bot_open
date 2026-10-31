@@ -1,0 +1,183 @@
+:root {
+    --tg-bg: var(--tg-theme-bg-color, #ffffff);
+    --tg-text: var(--tg-theme-text-color, #000000);
+    --tg-hint: var(--tg-theme-hint-color, #999999);
+    --tg-btn: var(--tg-theme-button-color, #3390ec);
+    --tg-btn-text: var(--tg-theme-button-text-color, #ffffff);
+    --tg-secondary: var(--tg-theme-secondary-bg-color, #f0f0f0);
+}
+
+body {
+    background: var(--tg-bg);
+    color: var(--tg-text);
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: 0;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+.screen {
+    display: none;
+}
+
+.screen.active {
+    display: block;
+}
+
+h1,
+h2 {
+    margin-top: 0;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    margin: 8px 0;
+    font-size: 16px;
+    background: var(--tg-btn);
+    color: var(--tg-btn-text);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.back {
+    background: none;
+    border: none;
+    color: var(--tg-btn);
+    font-size: 15px;
+    padding: 8px 0;
+    cursor: pointer;
+}
+
+/* Карта вопросов */
+#question-map {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.map-item {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: var(--tg-secondary);
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.map-item.answered {
+    background: var(--tg-btn);
+    color: var(--tg-btn-text);
+}
+
+.map-item.current {
+    outline: 2px solid var(--tg-text);
+}
+
+/* Вопрос */
+.question-text {
+    font-size: 17px;
+    margin-bottom: 12px;
+    white-space: pre-wrap;
+}
+
+.question-code {
+    background: var(--tg-secondary);
+    padding: 10px;
+    border-radius: 8px;
+    font-family: monospace;
+    white-space: pre-wrap;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    margin: 6px 0;
+    background: var(--tg-secondary);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.option input {
+    accent-color: var(--tg-btn);
+}
+
+.option.correct {
+    outline: 2px solid #2ecc71;
+}
+
+.option.wrong {
+    outline: 2px solid #e74c3c;
+}
+
+.test-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+#btn-check {
+    background: var(--tg-btn);
+    color: var(--tg-btn-text);
+    border: none;
+    border-radius: 8px;
+    padding: 8px 14px;
+    cursor: pointer;
+}
+
+.test-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+}
+
+.test-nav button {
+    background: var(--tg-secondary);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    cursor: pointer;
+    color: var(--tg-text);
+}
+
+/* Результаты */
+.result-item {
+    padding: 12px;
+    margin: 8px 0;
+    background: var(--tg-secondary);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.result-item .mark {
+    font-weight: bold;
+}
+
+.result-item .mark.ok {
+    color: #2ecc71;
+}
+
+.result-item .mark.fail {
+    color: #e74c3c;
+}
+
+.result-detail {
+    display: none;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.result-item.open .result-detail {
+    display: block;
+}
