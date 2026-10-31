@@ -148,8 +148,8 @@ function renderPicker() {
 
   let items = [];
   if (state.mode === "bank") { title.textContent = "Тип задания"; items = TYPES; }
-  if (state.mode === "sr")   { title.textContent = "К какой СР готовишься?"; items = SRS; }
-  if (state.mode === "topic"){ title.textContent = "Тема"; items = TOPICS; }
+  if (state.mode === "sr") { title.textContent = "К какой СР готовишься?"; items = SRS; }
+  if (state.mode === "topic") { title.textContent = "Тема"; items = TOPICS; }
 
   items.forEach(item => {
     const b = document.createElement("button");
@@ -157,8 +157,8 @@ function renderPicker() {
     b.textContent = item.name;
     b.addEventListener("click", () => {
       let pred;
-      if (state.mode === "bank")  pred = q => q.type === item.id;
-      if (state.mode === "sr")    pred = q => q.sr.includes(item.id);
+      if (state.mode === "bank") pred = q => q.type === item.id;
+      if (state.mode === "sr") pred = q => q.sr.includes(item.id);
       if (state.mode === "topic") pred = q => q.topic === item.id;
       const qs = pickQuestions(pred);
       if (qs.length === 0) {
@@ -227,7 +227,7 @@ function renderTest() {
       if (q.multi) {
         const cur = new Set(state.answers[q.id] || []);
         input.checked ? cur.add(idx) : cur.delete(idx);
-        state.answers[q.id] = [...cur].sort((a,b)=>a-b);
+        state.answers[q.id] = [...cur].sort((a, b) => a - b);
       } else {
         state.answers[q.id] = [idx];
       }
@@ -303,7 +303,7 @@ $("#btn-retry").addEventListener("click", () => {
 });
 
 // Кнопки «назад»
-document.querySelectorAll(".back").forEach(btn => {
+document.querySelectorAll("[data-back]").forEach(btn => {
   btn.addEventListener("click", () => {
     const target = btn.dataset.back;
     if (target === "home") show("home");
