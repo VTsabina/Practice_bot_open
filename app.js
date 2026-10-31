@@ -5,7 +5,7 @@
 
 // Справочники для UI (пока условные)
 const TYPES = [
-  { id: "true-false", name: "Верно-невернр" }, { id: "mistakes-one", name: "Поиск ошибки (один ответ)" },
+  { id: "true-false", name: "Верно-неверно" }, { id: "mistakes-one", name: "Поиск ошибки (один ответ)" },
   { id: "mistakes-mult", name: "Поиск ошибок в коде" }, { id: "theory-one", name: "Теория (один ответ)" },
   { id: "theory-mult", name: "Теория (несколько ответов)" }, { id: "iter-count", name: "Счетчик итераций" },
   { id: "code-add", name: "Дополнить программу" }, { id: "code-choice", name: "Выбор кода" },
