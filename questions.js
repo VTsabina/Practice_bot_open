@@ -5372,4 +5372,1842 @@ for k, v in d.items():\n\
         multi: false,
         comment: "key=lambda x: x[1] сортирует по второму элементу кортежа (баллу), reverse=True — по убыванию. Метод .sort() возвращает None, поэтому его результат нельзя присвоить"
     },
+
+    // Тема 7: Функции
+    // Протошива храни дипсик...
+
+    {
+        id: "funcs_001",
+        level: "basic",
+        type: "true-false",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Верно ли утверждение:",
+        code: "Функция в Python создаётся с помощью ключевого слова def",
+        options: ["Верно", "Неверно"],
+        correct: [0],
+        multi: false,
+        comment: "Пользовательская функция объявляется словом def, после которого идёт имя функции, круглые скобки с параметрами и двоеточие"
+    },
+    {
+        id: "funcs_002",
+        level: "basic",
+        type: "true-false",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Верно ли утверждение:",
+        code: "Функция может вернуть несколько значений, и тогда return вернёт кортеж",
+        options: ["Верно", "Неверно"],
+        correct: [0],
+        multi: false,
+        comment: "Запись return a, b возвращает кортеж (a, b), который можно распаковать в две переменные при вызове"
+    },
+    {
+        id: "funcs_003",
+        level: "basic",
+        type: "true-false",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Верно ли утверждение:",
+        code: "Локальная переменная, созданная внутри функции, доступна за её пределами",
+        options: ["Верно", "Неверно"],
+        correct: [1],
+        multi: false,
+        comment: "Локальные переменные существуют только внутри функции и недоступны снаружи. Попытка обратиться к ним снаружи вызовет NameError"
+    },
+    {
+        id: "funcs_004",
+        level: "basic",
+        type: "true-false",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Верно ли утверждение:",
+        code: "Если в функции нет оператора return, она возвращает None",
+        options: ["Верно", "Неверно"],
+        correct: [0],
+        multi: false,
+        comment: "Без return функция завершается и неявно возвращает None"
+    },
+    {
+        id: "funcs_005",
+        level: "basic",
+        type: "true-false",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Верно ли утверждение:",
+        code: "Список, переданный в функцию, можно изменить внутри функции, и эти изменения будут видны снаружи",
+        options: ["Верно", "Неверно"],
+        correct: [0],
+        multi: false,
+        comment: "Список — изменяемый объект. В функцию передаётся ссылка на него, поэтому изменения (например, append) видны снаружи"
+    },
+    {
+        id: "funcs_006",
+        level: "basic",
+        type: "true-false",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Верно ли утверждение:",
+        code: "Строку, переданную в функцию, можно изменить внутри функции, и эти изменения будут видны снаружи",
+        options: ["Верно", "Неверно"],
+        correct: [1],
+        multi: false,
+        comment: "Строки неизменяемы. Внутри функции можно создать новую строку, но исходная переменная снаружи не изменится"
+    },
+    {
+        id: "funcs_007",
+        level: "basic",
+        type: "true-false",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Верно ли утверждение:",
+        code: "Модуль можно импортировать с псевдонимом: import math as m",
+        options: ["Верно", "Неверно"],
+        correct: [0],
+        multi: false,
+        comment: "Конструкция import math as m подключает модуль под именем m, после чего обращаются к m.sqrt() и т. п."
+    },
+    {
+        id: "funcs_008",
+        level: "basic",
+        type: "true-false",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Верно ли утверждение:",
+        code: "Оператор return может находиться в любой точке функции, и после него функция сразу завершается",
+        options: ["Верно", "Неверно"],
+        correct: [0],
+        multi: false,
+        comment: "Как только выполняется return, функция немедленно завершается и возвращает указанное значение"
+    },
+    {
+        id: "funcs_009",
+        level: "basic",
+        type: "true-false",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Верно ли утверждение:",
+        code: "Функция может быть передана в другую функцию как аргумент",
+        options: ["Верно", "Неверно"],
+        correct: [0],
+        multi: false,
+        comment: "Функции в Python — объекты первого класса: их можно передавать в другие функции, например в sorted(key=...) или map()"
+    },
+    {
+        id: "funcs_010",
+        level: "basic",
+        type: "true-false",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Верно ли утверждение:",
+        code: "Число, переданное в функцию, можно изменить внутри функции, и это изменение будет видно снаружи",
+        options: ["Верно", "Неверно"],
+        correct: [1],
+        multi: false,
+        comment: "Числа неизменяемы. Внутри функции создаётся новое значение, а исходная переменная снаружи не меняется"
+    },
+    {
+        id: "funcs_011",
+        level: "basic",
+        type: "true-false",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Верно ли утверждение:",
+        code: "Словарь, переданный в функцию, можно изменить внутри функции, и эти изменения будут видны снаружи",
+        options: ["Верно", "Неверно"],
+        correct: [0],
+        multi: false,
+        comment: "Словарь — изменяемый объект. Изменения (добавление/удаление пар) внутри функции видны снаружи"
+    },
+    {
+        id: "funcs_012",
+        level: "basic",
+        type: "true-false",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Верно ли утверждение:",
+        code: "Если присвоить числовому параметру функции новое значение, это не изменит переменную, переданную снаружи",
+        options: ["Верно", "Неверно"],
+        correct: [0],
+        multi: false,
+        comment: "Присваивание параметру нового значения меняет только локальную переменную функции. Внешняя переменная остаётся прежней"
+    },
+    {
+        id: "funcs_013",
+        level: "basic",
+        type: "theory-one",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Каким ключевым словом объявляется функция в Python?",
+        options: ["function", "def", "func", "define"],
+        correct: [1],
+        multi: false,
+        comment: "Функция объявляется словом def, за которым идут имя, параметры в скобках и двоеточие"
+    },
+    {
+        id: "funcs_014",
+        level: "basic",
+        type: "theory-one",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Что вернёт функция, если в ней нет оператора return?",
+        options: ["0", "None", "Пустую строку", "Вызовет ошибку"],
+        correct: [1],
+        multi: false,
+        comment: "Без return функция возвращает None"
+    },
+    {
+        id: "funcs_015",
+        level: "basic",
+        type: "theory-one",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Что произойдёт при попытке обратиться к локальной переменной функции снаружи?",
+        options: ["Вернётся None",
+            "Вернётся 0",
+            "Возникнет ошибка NameError",
+            "Вернётся последнее значение переменной"],
+        correct: [2],
+        multi: false,
+        comment: "Локальные переменные существуют только внутри функции. Снаружи их имя не определено, поэтому возникает NameError"
+    },
+    {
+        id: "funcs_016",
+        level: "basic",
+        type: "theory-one",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Как импортировать только функцию sqrt из модуля math?",
+        options: ["import math.sqrt",
+            "import sqrt from math",
+            "from math import sqrt",
+            "from sqrt import math"],
+        correct: [2],
+        multi: false,
+        comment: "Конструкция from math import sqrt подключает только функцию sqrt, и её можно вызывать напрямую: sqrt(16)"
+    },
+    {
+        id: "funcs_017",
+        level: "basic",
+        type: "theory-one",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Что произойдёт с исходным списком, если внутри функции вызвать nums.append(5)?",
+        options: ["Ничего не изменится",
+            "Возникнет ошибка",
+            "Функция вернёт новый список",
+            "В исходный список добавится 5"],
+        correct: [3],
+        multi: false,
+        comment: "Список — изменяемый объект, в функцию передаётся ссылка на него. append(5) изменит исходный список снаружи"
+    },
+    {
+        id: "funcs_018",
+        level: "basic",
+        type: "theory-one",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Что вернёт вызов функции, в которой написано return a, b?",
+        options: ["Список [a, b]",
+            "Кортеж (a, b)",
+            "Строку 'ab'",
+            "Только a"],
+        correct: [1],
+        multi: false,
+        comment: "return a, b возвращает кортеж (a, b). Его можно распаковать: x, y = func()"
+    },
+    {
+        id: "funcs_019",
+        level: "basic",
+        type: "theory-one",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Какое имя функции считается корректным по правилам нейминга Python?",
+        options: ["1st_function", "my-function", "calculate_total", "class"],
+        correct: [2],
+        multi: false,
+        comment: "Имя функции может содержать буквы, цифры и подчёркивания, но не может начинаться с цифры, не может содержать дефис и не может быть ключевым словом (class). По стилю используют snake_case: calculate_total"
+    },
+    {
+        id: "funcs_020",
+        level: "basic",
+        type: "theory-mult",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Укажите все изменяемые типы данных, изменения которых внутри функции будут видны снаружи:",
+        options: ["Список",
+            "Строка",
+            "Словарь",
+            "Кортеж",
+            "Множество"],
+        correct: [0, 2, 4],
+        multi: true,
+        comment: "Изменяемые типы — список, словарь и множество. Строка и кортеж неизменяемы, их «изменение» создаёт новый объект внутри функции"
+    },
+    {
+        id: "funcs_021",
+        level: "basic",
+        type: "theory-mult",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Укажите все корректные способы подключить модуль math:",
+        options: ["import math",
+            "import math as m",
+            "using math",
+            "from math import *",
+            "include math"],
+        correct: [0, 1, 3],
+        multi: true,
+        comment: "Модуль можно подключить целиком (import math), с псевдонимом (import math as m), или импортировать все элементы (from math import *). Конструкций using и include в Python нет"
+    },
+    {
+        id: "funcs_022",
+        level: "basic",
+        type: "theory-mult",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Укажите все верные утверждения про return:",
+        options: ["return завершает выполнение функции",
+            "return может вернуть несколько значений через запятую",
+            "return может находиться внутри условия if",
+            "После return код в функции продолжит выполняться",
+            "Если return нет, функция вернёт None"],
+        correct: [0, 1, 2, 4],
+        multi: true,
+        comment: "return завершает функцию, может возвращать несколько значений и находиться в любом месте, в том числе в if. Код после return в этой же ветке не выполняется. Без return функция возвращает None"
+    },
+    {
+        id: "funcs_023",
+        level: "basic",
+        type: "theory-mult",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Укажите все причины использовать пользовательские функции:",
+        options: ["Избежать дублирования кода",
+            "Сделать программу более читаемой",
+            "Разбить сложную задачу на части",
+            "Ускорить работу программы в любом случае",
+            "Переиспользовать код в разных местах"],
+        correct: [0, 1, 2, 4],
+        multi: true,
+        comment: "Функции помогают не дублировать код, делают программу читаемее, разбивают задачу на части и позволяют переиспользовать код. Автоматического ускорения они не дают"
+    },
+    {
+        id: "funcs_024",
+        level: "basic",
+        type: "theory-mult",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Укажите все верные утверждения про передачу аргументов в функцию:",
+        options: ["Аргументы передаются по ссылке на объект",
+            "Изменяемые объекты можно изменить внутри функции",
+            "Присваивание параметру нового значения меняет внешнюю переменную",
+            "Неизменяемые объекты внутри функции не меняются",
+            "Функция может принимать несколько аргументов"],
+        correct: [0, 1, 3, 4],
+        multi: true,
+        comment: "В Python аргументы передаются по ссылке на объект. Изменяемые объекты можно изменить, неизменяемые — нет. Присваивание параметру нового значения не меняет внешнюю переменную"
+    },
+    {
+        id: "funcs_025",
+        level: "basic",
+        type: "theory-mult",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Укажите все стандартные библиотеки Python:",
+        options: ["math", "random", "datetime", "numpy", "os", "pandas"],
+        correct: [0, 1, 2, 4],
+        multi: true,
+        comment: "math, random, datetime и os входят в стандартную библиотеку Python. numpy, pandas — сторонняя библиотека, её нужно устанавливать отдельно"
+    },
+    {
+        id: "funcs_026",
+        level: "basic",
+        type: "mistakes-one",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Программа должна объявить функцию, которая выводит приветствие. Укажите, почему код не будет работать:",
+        code: "[1] def greet():\n\
+[2] print('Hello!')",
+        options: ["В строке [1] def нужно писать с большой буквы",
+            "В строке [2] нет отступа — тело функции должно быть с отступом",
+            "В строке [1] после скобок не нужна двоеточие",
+            "В строке [2] print() не может выводить строки",
+            "В строке [1] у функции не может быть пустых скобок"],
+        correct: [1],
+        multi: false,
+        comment: "Тело функции выделяется отступом. Без отступа интерпретатор выдаст IndentationError"
+    },
+    {
+        id: "funcs_027",
+        level: "basic",
+        type: "mistakes-one",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Программа должна вернуть сумму двух чисел. Укажите, почему код не будет работать:",
+        code: "[1] def add(a, b):\n\
+[2]     result = a + b\n\
+[3] print(add(2, 3))",
+        options: ["В строке [1] не хватает двоеточия",
+            "В строке [2] не хватает отступа",
+            "В строке [3] функцию нельзя вызывать внутри print()",
+            "В строке [1] параметры должны быть в квадратных скобках",
+            "В строке [2] не хватает return"],
+        correct: [4],
+        multi: false,
+        comment: "Функция вычисляет result, но не возвращает его. Без return она вернёт None, и print выведет None. Нужно добавить return result"
+    },
+    {
+        id: "funcs_028",
+        level: "basic",
+        type: "mistakes-one",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Программа должна вывести квадратный корень из числа. Укажите, почему код не будет работать:",
+        code: "[1] import math\n\
+[2] print(math.sqrt[16])",
+        options: ["В строке [1] модуль math нужно импортировать иначе",
+            "В строке [2] функции sqrt нет в модуле math",
+            "В строке [2] функцию sqrt вызывают с круглыми скобками",
+            "В строке [2] print() не может выводить числа",
+            "В строке [1] не хватает from"],
+        correct: [2],
+        multi: false,
+        comment: "Функцию вызывают с круглыми скобками: math.sqrt(16). Квадратные скобки — для индексов и срезов"
+    },
+    {
+        id: "funcs_029",
+        level: "basic",
+        type: "mistakes-one",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Программа должна изменить число внутри функции и увидеть результат снаружи. Укажите, почему код не будет работать, как ожидается:",
+        code: "[1] def change(x):\n\
+[2]     x = x + 10\n\
+[3] num = 5\n\
+[4] change(num)\n\
+[5] print(num)",
+        options: ["В строке [1] не хватает двоеточия",
+            "В строке [2] не хватает return",
+            "Числа в принципе неизменяемы",
+            "В строке [4] функцию нельзя вызывать без print()",
+            "В строке [2] не хватает отступа"],
+        correct: [2],
+        multi: false,
+        comment: "Числа неизменяемы. Внутри функции создаётся новое значение x, внешняя переменная num не меняется. Чтобы получить результат, нужно вернуть его через return и присвоить"
+    },
+    {
+        id: "funcs_030",
+        level: "basic",
+        type: "mistakes-one",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Программа должна вывести значение локальной переменной снаружи функции. Укажите, почему код не будет работать:",
+        code: "[1] def calc():\n\
+[2]     result = 42\n\
+[3] calc()\n\
+[4] print(result)",
+        options: ["В строке [1] не хватает двоеточия",
+            "В строке [4] переменная result локальная",
+            "В строке [2] не хватает return",
+            "В строке [3] функцию нельзя вызывать без print()",
+            "В строке [2] не хватает отступа"],
+        correct: [1],
+        multi: false,
+        comment: "result — локальная переменная функции calc. Снаружи её имя не определено, поэтому print(result) вызовет NameError. Нужно вернуть значение через return"
+    },
+    {
+        id: "funcs_031",
+        level: "basic",
+        type: "mistakes-one",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Программа должна посчитать факториал с помощью модуля math. Укажите, почему код не будет работать:",
+        code: "[1] import math as m\n\
+[2] print(math.factorial(5))",
+        options: ["В строке [1] псевдоним m недопустим",
+            "В строке [2] модуль подключён под псевдонимом m",
+            "В строке [2] функции factorial нет в модуле math",
+            "В строке [1] нужно использовать from math import m",
+            "В строке [2] factorial нельзя вызывать с числом"],
+        correct: [1],
+        multi: false,
+        comment: "При import math as m модуль доступен под именем m. Обращение math.factorial(5) вызовет NameError, так как имя math не определено"
+    },
+    {
+        id: "funcs_032",
+        level: "basic",
+        type: "mistakes-one",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Программа должна вернуть два значения из функции. Укажите, почему код не будет работать:",
+        code: "[1] def min_max(nums):\n\
+[2]     return min(nums), max(nums)\n\
+[3] a, b = min_max([3, 1, 4, 2])\n\
+[4] print(a, b)",
+        options: ["В строке [1] не хватает двоеточия",
+            "В строке [2] return не может возвращать два значения",
+            "В строке [3] нельзя распаковывать результат в две переменные",
+            "В строке [2] min и max нельзя применять к списку",
+            "Код работает корректно, ошибок нет"],
+        correct: [4],
+        multi: false,
+        comment: "return min(nums), max(nums) возвращает кортеж, который в строке [3] распаковывается в a и b. Код верный и выведет 1 4"
+    },
+    {
+        id: "funcs_033",
+        level: "basic",
+        type: "mistakes-mult",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Программа должна добавить элемент в список через функцию и увидеть изменение снаружи. Выберите все причины, почему код не будет работать, как ожидается:",
+        code: "[1] def add_item(lst, item):\n\
+[2]     lst.append(item)\n\
+[3] nums = [1, 2]\n\
+[4] add_item(nums, 3)\n\
+[5] print(nums)",
+        options: ["В строке [1] не хватает двоеточия",
+            "В строке [2] не хватает return",
+            "В строке [2] нет отступа",
+            "Код работает корректно, ошибок нет",
+            "В строке [4] функцию нельзя вызывать без print()"],
+        correct: [3],
+        multi: true,
+        comment: "Список изменяемый, поэтому append внутри функции изменит исходный nums. Return не нужен — функция меняет объект, а не возвращает новое значение. Код верный"
+    },
+    {
+        id: "funcs_034",
+        level: "basic",
+        type: "mistakes-mult",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Программа должна вернуть сумму элементов списка. Выберите все причины, почему код не будет работать, как ожидается:",
+        code: "[1] def total(nums):\n\
+[2] result = sum(nums)\n\
+[3] print(result)\n\
+[4] print(total([1, 2, 3]))",
+        options: ["В строке [1] не хватает двоеточия",
+            "В строке [2] нет отступа — тело функции должно быть с отступом",
+            "В строке [3] нет отступа",
+            "В строке [2] не хватает return, поэтому функция вернёт None",
+            "В строке [4] функцию нельзя вызывать внутри print()"],
+        correct: [1, 2, 3],
+        multi: true,
+        comment: "Строки [2] и [3] должны иметь отступ (тело функции). Кроме того, отсутствует return, поэтому функция вернёт None, и строка [4] выведет None. Вызывать функцию внутри print() можно"
+    },
+    {
+        id: "funcs_035",
+        level: "basic",
+        type: "mistakes-mult",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Программа должна использовать функцию sqrt из модуля math. Выберите все причины, почему код не будет работать, как ожидается:",
+        code: "[1] import sqrt from math \n\
+[2] print(math.sqrt(16))",
+        options: ["В строке [1] неверный синтаксис импорта",
+            "В строке [2] после from math import sqrt имя math не определено",
+            "В строке [2] функции sqrt нет в модуле math",
+            "В строке [2] print() не может выводить числа",
+            "В строке [1] нужно использовать import math.sqrt"],
+        correct: [0, 1],
+        multi: true,
+        comment: "Импорт должен иметь вид from math import sqrt. После такого импорта доступна только функция sqrt, а имя math не определено. Нужно писать sqrt(16) или использовать import math"
+    },
+    {
+        id: "funcs_036",
+        level: "basic",
+        type: "mistakes-mult",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Программа должна изменить словарь внутри функции. Выберите все причины, почему код не будет работать, как ожидается:",
+        code: "[1] def update(d):\n\
+[2]     return d['new'] == 1\n\
+[3] data = {'a': 2}\n\
+[4] update(data)\n\
+[5] print(data)",
+        options: ["В строке [1] не хватает двоеточия",
+            "В строке [2] не нужен return",
+            "В строке [2] вместо == должно быть =",
+            "В строке [2] нельзя добавлять ключи в словарь внутри функции",
+            "Код работает корректно, ошибок нет"],
+        correct: [1, 2],
+        multi: true,
+        comment: "Словарь изменяемый, добавление ключа внутри функции видно снаружи. Return не нужен, отступ на месте. Вместо оператора равенства == надо использовать оператор присваивания ="
+    },
+    {
+        id: "funcs_037",
+        level: "basic",
+        type: "mistakes-mult",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Программа должна вернуть максимум и минимум списка. Выберите все причины, почему код не будет работать, как ожидается:",
+        code: "[1] def min_max(nums):\n\
+[2]     return min(nums), max(nums)\n\
+[3] result = min_max([3, 1, 4])\n\
+[4] print(result[0])",
+        options: ["В строке [1] не хватает двоеточия",
+            "В строке [2] return не может возвращать кортеж",
+            "В строке [3] результат нельзя сохранить в переменную",
+            "В строке [4] нельзя обращаться к элементу кортежа по индексу",
+            "Код работает корректно, ошибок нет"],
+        correct: [4],
+        multi: true,
+        comment: "return min(nums), max(nums) возвращает кортеж (1, 4). result[0] даёт 1. Код верный"
+    },
+    {
+        id: "funcs_038",
+        level: "basic",
+        type: "mistakes-mult",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Программа должна передать функцию как аргумент в другую функцию. Выберите все причины, почему код не будет работать, как ожидается:",
+        code: "[1] def square(x)\n\
+[2]     return x * x\n\
+[3] def apply(func, value)\n\
+[4]     return func(value)\n\
+[5] print(apply(square(3), 5))",
+        options: ["В строке [1] не хватает двоеточия",
+            "В строке [5] передаётся результат square(3), а не сама функция",
+            "В строке [4] нельзя вызывать функцию, переданную как аргумент",
+            "В строке [3] нельзя передавать функцию как параметр",
+            "В строке [2] не хватает return",
+            "В строке [1] не хватает двоеточия"],
+        correct: [0, 1, 5],
+        multi: true,
+        comment: "square(3) сразу вычисляет результат (9), а apply ожидает саму функцию. Нужно передать имя функции без вызова: apply(square, 5). Также после объявления функции перед её телом должно стоять двоеточие"
+    },
+    {
+        id: "funcs_039",
+        level: "basic",
+        type: "mistakes-mult",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Программа должна импортировать модуль random с псевдонимом и использовать его. Выберите все причины, почему код не будет работать, как ожидается:",
+        code: "[1] import random as rnd\n\
+[2] print(random(randint(1, 10)))",
+        options: ["В строке [1] неверный синтаксис импорта",
+            "В строке [2] модуль подключён как rnd",
+            "В строке [2] функции randint нет в модуле random",
+            "В строке [1] псевдоним должен быть в кавычках",
+            "В строке [2] вызов функции из модуля должен быть через точку",
+            "В строке [2] print() не может выводить числа"],
+        correct: [1, 4],
+        multi: true,
+        comment: "После import random as rnd модуль доступен как rnd. Обращение random.randint вызовет NameError"
+    },
+    {
+        id: "funcs_040",
+        level: "basic",
+        type: "mistakes-mult",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Программа должна изменить строку внутри функции и увидеть результат снаружи. Выберите все причины, почему код не будет работать, как ожидается:",
+        code: "[1] def upper_it(s):\n\
+[2]     s = s.upper()\n\
+[3] text = 'hello'\n\
+[4] upper_it(text)\n\
+[5] print(text)",
+        options: ["В строке [1] не хватает двоеточия",
+            "В строке [2] не хватает отступа",
+            "Строки неизменяемы, а результат upper() не возвращается",
+            "Нужно вернуть новую строку через return и присвоить результат",
+            "В строке [2] метода upper() не существует у строк"],
+        correct: [2, 3],
+        multi: true,
+        comment: "Строки неизменяемы. Внутри функции создаётся новая строка s, но она не возвращается, поэтому text снаружи остаётся 'hello'. Нужно return s и text = upper_it(text)"
+    },
+    {
+        id: "funcs_041",
+        level: "basic",
+        type: "code-read",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Что выведет код:",
+        code: "def add(a, b):\n\
+    return a + b\n\
+print(add(2, 3))",
+        options: ["2 3", "5", "None", "Ошибка"],
+        correct: [1],
+        multi: false,
+        comment: "Функция add возвращает сумму 2 + 3 = 5. print выводит результат — 5"
+    },
+    {
+        id: "funcs_042",
+        level: "basic",
+        type: "code-read",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Что выведет код:",
+        code: "def greet(name):\n\
+    print('Hello,', name)\n\
+result = greet('Anna')\n\
+print(result)",
+        options: ["Hello, Anna\\nHello, Anna",
+            "Hello, Anna\\nNone",
+            "None",
+            "Ошибка"],
+        correct: [1],
+        multi: false,
+        comment: "greet печатает приветствие и ничего не возвращает, поэтому result = None. Затем print выводит None"
+    },
+    {
+        id: "funcs_043",
+        level: "basic",
+        type: "code-read",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Что выведет код:",
+        code: "def min_max(nums):\n\
+    return min(nums), max(nums)\n\
+a, b = min_max([3, 1, 4, 2])\n\
+print(a, b)",
+        options: ["1 4", "3 2", "(1, 4)", "Ошибка"],
+        correct: [0],
+        multi: false,
+        comment: "min_max возвращает кортеж (1, 4), который распаковывается в a и b. print выводит 1 4"
+    },
+    {
+        id: "funcs_044",
+        level: "basic",
+        type: "code-read",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Что выведет код:",
+        code: "def change(lst):\n\
+    lst.append(100)\n\
+nums = [1, 2]\n\
+change(nums)\n\
+print(nums)",
+        options: ["[1, 2]", "[1, 2, 100]", "None", "Ошибка"],
+        correct: [1],
+        multi: false,
+        comment: "Список изменяемый: append внутри функции меняет исходный nums. На выходе [1, 2, 100]"
+    },
+    {
+        id: "funcs_045",
+        level: "basic",
+        type: "code-read",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Что выведет код:",
+        code: "def change(x):\n\
+    x = x + 10\n\
+num = 5\n\
+change(num)\n\
+print(num)",
+        options: ["5", "15", "None", "Ошибка"],
+        correct: [0],
+        multi: false,
+        comment: "Числа неизменяемы. Внутри функции создаётся новое значение x, а внешняя переменная num остаётся 5"
+    },
+    {
+        id: "funcs_046",
+        level: "basic",
+        type: "code-read",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Что выведет код:",
+        code: "def square(x):\n\
+    return x * x\n\
+print(list(map(square, [1, 2, 3])))",
+        options: ["[1, 2, 3]", "[2, 4, 6]", "[1, 4, 9]", "Ошибка"],
+        correct: [2],
+        multi: false,
+        comment: "map применяет square к каждому элементу: 1, 4, 9. list собирает результат в список"
+    },
+    {
+        id: "funcs_047",
+        level: "basic",
+        type: "code-read",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Что выведет код:",
+        code: "def apply(func, value):\n\
+    return func(value)\n\
+print(apply(abs, -7))",
+        options: ["-7", "7", "None", "Ошибка"],
+        correct: [1],
+        multi: false,
+        comment: "В apply передаётся функция abs и значение -7. func(value) вызывает abs(-7), результат будет 7"
+    },
+    {
+        id: "funcs_048",
+        level: "basic",
+        type: "code-read",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Что выведет код:",
+        code: "import math\n\
+print(math.sqrt(25))",
+        options: ["5", "5.0", "25", "Ошибка"],
+        correct: [1],
+        multi: false,
+        comment: "math.sqrt возвращает число с плавающей точкой, поэтому 5.0, а не 5"
+    },
+    {
+        id: "funcs_049",
+        level: "basic",
+        type: "code-read",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Что выведет код:",
+        code: "from math import sqrt\n\
+print(sqrt(16) + sqrt(9))",
+        options: ["7", "7.0", "25", "Ошибка"],
+        correct: [1],
+        multi: false,
+        comment: "sqrt(16) = 4.0, sqrt(9) = 3.0. Сумма равна 7.0 (число с плавающей точкой)"
+    },
+    {
+        id: "funcs_050",
+        level: "basic",
+        type: "code-read",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Что выведет код:",
+        code: "def outer(x):\n\
+    def inner(y):\n\
+        return y * 2\n\
+    return inner(x) + 1\n\
+print(outer(5))",
+        options: ["5", "10", "11", "Ошибка"],
+        correct: [2],
+        multi: false,
+        comment: "outer вызывает inner(5), которая возвращает 10, и прибавляет 1. Результат — 11"
+    },
+    {
+        id: "funcs_051",
+        level: "basic",
+        type: "code-choice",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Выберите функцию, которая корректно возвращает сумму двух чисел",
+        options: ["def add(a, b):\n\tprint(a + b)",
+            "def add(a, b):\n\treturn a + b",
+            "def add(a, b)\n\treturn a + b",
+            "def add(a, b):\n\treturn"],
+        correct: [1],
+        multi: false,
+        comment: "Функция должна возвращать результат через return. print только печатает. В третьем варианте нет двоеточия, в четвёртом return пустой"
+    },
+    {
+        id: "funcs_052",
+        level: "basic",
+        type: "code-choice",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Выберите код, который импортирует только функцию randint из модуля random",
+        options: ["import random.randint",
+            "import randint from random",
+            "from randint import random",
+            "from random import randint"],
+        correct: [3],
+        multi: false,
+        comment: "from random import randint подключает только функцию randint, и её можно вызывать напрямую: randint(1, 10)"
+    },
+    {
+        id: "funcs_053",
+        level: "basic",
+        type: "code-choice",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Выберите функцию, которая корректно возвращает минимум и максимум списка",
+        options: ["def min_max(nums):\n\tprint(min(nums), max(nums))",
+            "def min_max(nums):\n\treturn min, max",
+            "def min_max(nums):\n\treturn min(nums), max(nums)",
+            "def min_max(nums):\n\treturn min(nums) and max(nums)"],
+        correct: [2],
+        multi: false,
+        comment: "return min(nums), max(nums) возвращает кортеж из двух значений. print только печатает, min и max без аргументов — объекты функций, and вернёт одно значение"
+    },
+    {
+        id: "funcs_054",
+        level: "basic",
+        type: "code-add",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Как дополнить функцию, чтобы она возвращала площадь прямоугольника, если уже написан следующий код:",
+        code: "def area(width, height):\n\
+    s = width * height",
+        options: ["return",
+            "return s",
+            "print(s)",
+            "return width, height"],
+        correct: [1],
+        multi: false,
+        comment: "Чтобы функция вернула площадь, нужно добавить return s. Пустой return вернёт None, print только печатает"
+    },
+    {
+        id: "funcs_055",
+        level: "basic",
+        type: "code-add",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Как дополнить код, чтобы функция change изменила переданный список и это было видно снаружи, если уже написан следующий код:",
+        code: "def change(lst):\n\
+    # нужно добавить элемент 0 в начало списка",
+        options: ["lst = [0] + lst",
+            "lst.insert(0, 0)",
+            "return [0] + lst",
+            "lst.append(0)"],
+        correct: [1],
+        multi: false,
+        comment: "lst.insert(0, 0) изменяет сам список на месте, и изменение видно снаружи. Варианты с lst = ... и return создают новый список, не меняя исходный, а метод append lобавляет элемент в конец списка"
+    },
+    {
+        id: "funcs_056",
+        level: "basic",
+        type: "code-add",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Как дополнить код, чтобы отсортировать список слов по длине, если уже написан следующий код:",
+        code: "words = ['apple', 'fig', 'banana']\n\
+result = sorted(words,",
+        options: ["key=len())",
+            "key=len)",
+            "len)",
+            "reverse=len)"],
+        correct: [1],
+        multi: false,
+        comment: "Параметр key принимает функцию без вызова: key=len. sorted(words, key=len) вернёт список, отсортированный по длине слов"
+    },
+    {
+        id: "funcs_057",
+        level: "basic",
+        type: "code-add",
+        topic: "funcs",
+        sr: ["sr1"],
+        text: "Как дополнить код, чтобы функция возвращала среднее значение списка чисел, если уже написан следующий код:",
+        code: "def average(nums):\n\
+    total = sum(nums)",
+        options: ["return total",
+            "print(total / len(nums))",
+            "return len(nums)",
+            "return total / len(nums)"],
+        correct: [3],
+        multi: false,
+        comment: "Среднее — это сумма, делённая на количество элементов: return total / len(nums). print только печатает, return total вернёт сумму"
+    },
+
+    // Тема 7: Файлы и таблицы
+
+    {
+        id: "files_001",
+        level: "basic",
+        type: "true-false",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Верно ли утверждение:",
+        code: "Файл .csv — это текстовый файл, в котором значения разделены специальным символом (чаще всего запятой)",
+        options: ["Верно", "Неверно"],
+        correct: [0],
+        multi: false,
+        comment: "CSV (comma-separated values) — текстовый формат, где столбцы разделены запятой или другим разделителем"
+    },
+    {
+        id: "files_002",
+        level: "basic",
+        type: "true-false",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Верно ли утверждение:",
+        code: "Режим 'r' открывает файл только для чтения, и запись в него невозможна",
+        options: ["Верно", "Неверно"],
+        correct: [0],
+        multi: false,
+        comment: "'r' — read, только чтение. При попытке записи возникнет ошибка io.UnsupportedOperation"
+    },
+    {
+        id: "files_003",
+        level: "basic",
+        type: "true-false",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Верно ли утверждение:",
+        code: "Режим 'w' открывает файл для записи, не влияя на его содержимое",
+        options: ["Верно", "Неверно"],
+        correct: [1],
+        multi: false,
+        comment: "'w' — write: файл создаётся заново или очищается, если существовал. Для дозаписи используют 'a'"
+    },
+    {
+        id: "files_004",
+        level: "basic",
+        type: "true-false",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Верно ли утверждение:",
+        code: "Контекстный менеджер with автоматически закрывает файл после выхода из блока",
+        options: ["Верно", "Неверно"],
+        correct: [0],
+        multi: false,
+        comment: "with open(...) as f: гарантирует закрытие файла даже при возникновении исключения"
+    },
+    {
+        id: "files_005",
+        level: "basic",
+        type: "true-false",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Верно ли утверждение:",
+        code: "Режим 'a' открывает файл для дозаписи, удаляя существующее содержимое",
+        options: ["Верно", "Неверно"],
+        correct: [1],
+        multi: false,
+        comment: "'a' — append: новые данные добавляются в конец файла, старое содержимое сохраняется"
+    },
+    {
+        id: "files_006",
+        level: "basic",
+        type: "true-false",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Верно ли утверждение:",
+        code: "Метод .readlines() возвращает кортеж из строк файла",
+        options: ["Верно", "Неверно"],
+        correct: [1],
+        multi: false,
+        comment: ".readlines() читает весь файл и возвращает список строк, каждая из которых заканчивается символом перевода строки \\n"
+    },
+    {
+        id: "files_007",
+        level: "basic",
+        type: "true-false",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Верно ли утверждение:",
+        code: "При чтении CSV через csv.reader все значения возвращаются строками, даже если в файле записаны числа",
+        options: ["Верно", "Неверно"],
+        correct: [0],
+        multi: false,
+        comment: "csv.reader не преобразует типы: все значения — строки. Для работы с числами их нужно преобразовывать через int() или float()"
+    },
+    {
+        id: "files_008",
+        level: "basic",
+        type: "true-false",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Верно ли утверждение:",
+        code: "Параметр encoding='utf-8' при открытии файла указывает кодировку, в которой читается или записывается текст",
+        options: ["Верно", "Неверно"],
+        correct: [0],
+        multi: false,
+        comment: "encoding задаёт кодировку. UTF-8 — стандарт для русского текста; без указания кодировки могут возникнуть проблемы с кириллицей"
+    },
+    {
+        id: "files_009",
+        level: "basic",
+        type: "true-false",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Верно ли утверждение:",
+        code: "После выхода из блока with файл остаётся открытым, пока программа не завершится",
+        options: ["Верно", "Неверно"],
+        correct: [1],
+        multi: false,
+        comment: "with закрывает файл автоматически при выходе из блока. Обращение к закрытому файлу вызовет ValueError"
+    },
+    {
+        id: "files_010",
+        level: "basic",
+        type: "true-false",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Верно ли утверждение:",
+        code: "Для чтения файла в цикле for line in f: каждая строка будет заканчиваться пробелом, кроме, возможно, последней",
+        options: ["Верно", "Неверно"],
+        correct: [1],
+        multi: false,
+        comment: "Итерация по файлу отдаёт строки не с пробелом, а с символом \\n. Чтобы убрать его, используют .strip() или .rstrip('\\n')"
+    },
+    {
+        id: "files_011",
+        level: "basic",
+        type: "true-false",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Верно ли утверждение:",
+        code: "Метод .write() у файла принимает строку и возвращает число записанных символов",
+        options: ["Верно", "Неверно"],
+        correct: [0],
+        multi: false,
+        comment: ".write() записывает строку и возвращает количество записанных символов. Передавать в него число без str() нельзя"
+    },
+    {
+        id: "files_012",
+        level: "basic",
+        type: "true-false",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Верно ли утверждение:",
+        code: "Функция math.floor() округляет число вверх до ближайшего целого, а math.ceil() — вниз",
+        options: ["Верно", "Неверно"],
+        correct: [1],
+        multi: false,
+        comment: "math.floor(2.7) = 2, math.ceil(2.1) = 3. Для математического округления используют round()"
+    },
+    {
+        id: "files_013",
+        level: "basic",
+        type: "theory-one",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Какой режим открытия файла используется только для чтения?",
+        options: ["'w'", "'a'", "'r'", "'x'"],
+        correct: [2],
+        multi: false,
+        comment: "'r' (read) — только чтение. 'w' — запись с очисткой, 'a' — дозапись, 'x' — создание нового файла"
+    },
+    {
+        id: "files_014",
+        level: "basic",
+        type: "theory-one",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Что произойдёт, если открыть существующий файл в режиме 'w'?",
+        options: ["Файл откроется для дозаписи",
+            "Содержимое файла будет удалено",
+            "Возникнет ошибка",
+            "Файл откроется только для чтения"],
+        correct: [1],
+        multi: false,
+        comment: "Режим 'w' очищает файл перед записью. Если файла не было, он создаётся. Для сохранения содержимого используют 'a'"
+    },
+    {
+        id: "files_015",
+        level: "basic",
+        type: "theory-one",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Что возвращает метод .read() без аргументов?",
+        options: ["Первую строку файла",
+            "Список строк файла",
+            "Всё содержимое файла одной строкой",
+            "Количество строк"],
+        correct: [2],
+        multi: false,
+        comment: ".read() читает весь файл и возвращает его содержимое одной строкой. Для построчного чтения используют readline() или итерацию"
+    },
+    {
+        id: "files_016",
+        level: "basic",
+        type: "theory-one",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Какая конструкция гарантирует закрытие файла даже при возникновении ошибки?",
+        options: ["f = open(...); f.close()",
+            "with open(...) as f:",
+            "try: open(...)",
+            "open(...)"],
+        correct: [1],
+        multi: false,
+        comment: "Контекстный менеджер with закрывает файл автоматически при выходе из блока, даже если внутри произошла ошибка"
+    },
+    {
+        id: "files_017",
+        level: "basic",
+        type: "theory-one",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Что вернёт csv.reader при чтении файла?",
+        options: ["Список чисел - индексов считанных строк",
+            "Итератор по строкам, где каждая строка — список строк",
+            "Одну строку со всеми прочитанными значениями",
+            "Словарь, где ключи - это индексы, а значения - строки"],
+        correct: [1],
+        multi: false,
+        comment: "csv.reader возвращает итератор, по которому можно проходить в цикле; каждая строка — список значений-строк"
+    },
+    {
+        id: "files_018",
+        level: "basic",
+        type: "theory-one",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Какая функция округляет число вниз до ближайшего целого?",
+        options: ["round()", "math.ceil()", "math.floor()", "int()"],
+        correct: [2],
+        multi: false,
+        comment: "math.floor() округляет вниз (2.7 → 2). math.ceil() — вверх, round() — математически, int() отбрасывает дробную часть (для положительных совпадает с floor)"
+    },
+    {
+        id: "files_019",
+        level: "basic",
+        type: "theory-one",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Что означает атрибут mode='r' у объекта файла?",
+        options: ["Файл открыт только для чтения",
+            "Файл открыт для записи",
+            "Файл открыт для дозаписи",
+            "Файл открыт в бинарном режиме"],
+        correct: [0],
+        multi: false,
+        comment: "mode='r' — режим только для чтения. Это один из атрибутов объекта файла наряду с name и encoding"
+    },
+    {
+        id: "files_020",
+        level: "basic",
+        type: "theory-mult",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Укажите все корректные режимы открытия текстового файла в Python:",
+        options: ["'r'", "'w'", "m+", "'a'", "'read'", "'x'"],
+        correct: [0, 1, 3, 5],
+        multi: true,
+        comment: "Режимы: 'r' (чтение), 'w' (запись с очисткой), 'a' (дозапись), 'x' (создание нового). Режима 'read' не существует"
+    },
+    {
+        id: "files_021",
+        level: "basic",
+        type: "theory-mult",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Укажите все методы, которые можно использовать для чтения данных из файла:",
+        options: [".read()", ".readline()", ".write()", ".readlines()", ".close()"],
+        correct: [0, 1, 3],
+        multi: true,
+        comment: "Чтение: .read() (всё), .readline() (одна строка), .readlines() (список строк). .write() записывает, .close() закрывает файл"
+    },
+    {
+        id: "files_022",
+        level: "basic",
+        type: "theory-mult",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Укажите все верные утверждения про контекстный менеджер with:",
+        options: ["Автоматически закрывает файл",
+            "Требует явного вызова .close()",
+            "Может открывать сразу несколько файлов через запятую",
+            "Работает даже при возникновении исключения внутри блока",
+            "Заменяет try/except для файлов"],
+        correct: [0, 2, 3],
+        multi: true,
+        comment: "with закрывает файл автоматически, в том числе при исключении, и поддерживает несколько файлов через запятую. Явный close() не нужен, и try/except он не заменяет"
+    },
+    {
+        id: "files_023",
+        level: "basic",
+        type: "theory-mult",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Укажите все функции, которые можно использовать для округления чисел:",
+        options: ["round()", "math.floor()", "math.ceil()", "math.abs()", "int()"],
+        correct: [0, 1, 2, 4],
+        multi: true,
+        comment: "round() — математическое округление, math.floor() — вниз, math.ceil() — вверх, int() — отбрасывание дробной части. math.abs() не существует (есть abs())"
+    },
+    {
+        id: "files_024",
+        level: "basic",
+        type: "theory-mult",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Укажите все верные утверждения про чтение CSV-файлов:",
+        options: ["csv.reader возвращает значения в виде строк",
+            "Для работы с числами нужно преобразовывать значения в числовой тип",
+            "Заголовок обычно читается первой строкой",
+            "csv.reader автоматически преобразует числа",
+            "Можно указать разделитель через параметр delimiter"],
+        correct: [0, 1, 2, 4],
+        multi: true,
+        comment: "csv.reader не преобразует типы, значения остаются строками. Заголовок — первая строка, разделитель задаётся через delimiter. Автоматического преобразования чисел нет"
+    },
+    {
+        id: "files_025",
+        level: "basic",
+        type: "theory-mult",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Укажите все атрибуты объекта файла, которые можно получить после открытия:",
+        options: [".name", ".mode", ".encoding", ".content", ".closed"],
+        correct: [0, 1, 2, 4],
+        multi: true,
+        comment: "У объекта файла есть .name (имя файла), .mode (режим), .encoding (кодировка) и .closed (закрыт ли). Атрибута .content нет"
+    },
+    {
+        id: "files_026",
+        level: "basic",
+        type: "mistakes-one",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Программа должна прочитать файл и вывести его содержимое. Укажите, почему код не будет работать:",
+        code: "[1] f = open('text_file.txt', 'r')\n\
+[2] print(f.read())\n\
+[3] f.close",
+        options: ["В строке [1] неверный режим открытия",
+            "В строке [2] метод read нельзя вызывать внутри print()",
+            "В строке [3] метод close вызван без скобок — файл не закроется",
+            "В строке [1] не хватает encoding",
+            "Код работает корректно, ошибок нет"],
+        correct: [2],
+        multi: false,
+        comment: "close — метод, его нужно вызывать со скобками: f.close(). Без скобок файл не закроется. Надёжнее использовать with open(...) as f:"
+    },
+    {
+        id: "files_027",
+        level: "basic",
+        type: "mistakes-one",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Программа должна записать строку в файл. Укажите, почему код не будет работать:",
+        code: "[1] with open('out.txt', 'w') as f:\n\
+[2] f.write(42)",
+        options: ["В строке [1] неверный режим",
+            "В строке [1] после with не хватает двоеточия",
+            "В строке [2] нет отступа — строка должна быть внутри блока with",
+            "В строке [2] метод write не существует у файлов",
+            "В строке [2] write принимает только числа"],
+        correct: [2],
+        multi: false,
+        comment: "Строка [2] должна иметь отступ — это тело блока with. Кроме того, write принимает только строки, поэтому число нужно преобразовать: f.write(str(42))"
+    },
+    {
+        id: "files_028",
+        level: "basic",
+        type: "mistakes-one",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Программа должна прочитать CSV-файл и вывести первую строку. Укажите, почему код не будет работать:",
+        code: "[1] import csv\n\
+[2] with open('data.csv', 'r') as f:\n\
+[3]     reader = csv.reader(f)\n\
+[4] print(reader[0])",
+        options: ["В строке [1] неверный импорт",
+            "В строке [3] csv.reader нельзя применять к файлу",
+            "В строке [4] reader — итератор, у него нет индексов",
+            "В строке [2] не хватает encoding",
+            "В строке [2] не хватает режима 'w'"],
+        correct: [2],
+        multi: false,
+        comment: "csv.reader возвращает итератор, а не список. К нему нельзя обращаться по индексу. Нужно next(reader) или list(reader)[0]"
+    },
+    {
+        id: "files_029",
+        level: "basic",
+        type: "mistakes-one",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Программа должна прочитать файл построчно и вывести строки без символа перевода строки. Укажите, почему код не будет работать, как ожидается:",
+        code: "[1] with open('text_file.txt', 'r') as f:\n\
+[2]     for line in f:\n\
+[3]         print(line)",
+        options: ["В строке [2] нельзя итерироваться по файлу",
+            "В строке [3] нужен line.strip()",
+            "В строке [1] не хватает encoding",
+            "В строке [1] неверный режим",
+            "В строке [3] print не может выводить строки"],
+        correct: [1],
+        multi: false,
+        comment: "При итерации по файлу строки содержат \\n, поэтому print добавляет ещё один перевод. Нужно print(line.strip()) или print(line, end='')"
+    },
+    {
+        id: "files_030",
+        level: "basic",
+        type: "mistakes-one",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Программа должна прочитать число из файла. Укажите, почему код не будет работать:",
+        code: "[1] with open('num.txt', 'r') as f:\n\
+[2]     x = f.read()\n\
+[3] print(x + 10)",
+        options: ["В строке [1] неверный режим",
+            "В строке [2] read возвращает строку, а не число",
+            "В строке [3] print не может выводить числа",
+            "В строке [1] не хватает encoding",
+            "В строке [2] read нельзя вызывать без аргументов"],
+        correct: [1],
+        multi: false,
+        comment: "f.read() возвращает строку. Сложение строки и числа вызовет TypeError. Нужно преобразовать: x = int(f.read())"
+    },
+    {
+        id: "files_031",
+        level: "basic",
+        type: "mistakes-one",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Программа должна дозаписать строку в конец существующего файла. Укажите, почему код не будет работать, как ожидается:",
+        code: "[1] with open('log.txt', 'w') as f:\n\
+[2]     f.write('new line\\n')",
+        options: ["В строке [1] неверный режим",
+            "В строке [2] write принимает только числа",
+            "В строке [1] не хватает encoding",
+            "В строке [2] не хватает отступа",
+            "Код работает корректно, ошибок нет"],
+        correct: [0],
+        multi: false,
+        comment: "Режим 'w' стирает содержимое файла. Чтобы дописать строку в конец, нужно открыть файл в режиме 'a'"
+    },
+    {
+        id: "files_032",
+        level: "basic",
+        type: "mistakes-one",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Программа должна прочитать CSV-файл с русским текстом. Укажите, почему код не будет работать, как ожидается:",
+        code: "[1] import csv\n\
+[2] with open('data.csv', 'r') as f:\n\
+[3]     reader = csv.reader(f)\n\
+[4]     for row in reader:\n\
+[5]         print(row)",
+        options: ["В строке [1] неверный импорт",
+            "В строке [2] не указан параметр encoding='utf-8'",
+            "В строке [3] csv.reader нельзя применять к файлу",
+            "В строке [4] нельзя итерироваться по reader",
+            "В строке [5] print не может выводить списки"],
+        correct: [1],
+        multi: false,
+        comment: "Для файлов с кириллицей важно указывать encoding='utf-8', иначе возможны ошибки декодирования (UnicodeDecodeError) или «кракозябры»"
+    },
+    {
+        id: "files_033",
+        level: "basic",
+        type: "mistakes-mult",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Программа должна посчитать сумму чисел из CSV-файла, где все значения — числа. Выберите все причины, почему код не будет работать, как ожидается:",
+        code: "[1] import csv\n\
+[2] with open('nums.csv', 'r') as f:\n\
+[3]     reader = csv.reader(f)\n\
+[4]     total = 0\n\
+[5]     for row in reader:\n\
+[6]         total += row\n\
+[7] print(total)",
+        options: ["В строке [2] не хватает encoding",
+            "В строке [6] row — это список строк, а не число",
+            "В строке [5] нельзя итерироваться по reader",
+            "В строке [3] csv.reader нельзя применять к файлу",
+            "В строке [6] значения из CSV — строки"],
+        correct: [1, 4],
+        multi: true,
+        comment: "csv.reader возвращает строки как списки строк. Складывать список с числом нельзя. Нужно преобразовывать: total += sum(float(x) for x in row)"
+    },
+    {
+        id: "files_034",
+        level: "basic",
+        type: "mistakes-mult",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Программа должна прочитать файл и не забыть его закрыть. Выберите все причины, почему код не будет работать, как ожидается:",
+        code: "[1] f = open('text_file.txt', 'r')\n\
+[2] data = f.read()\n\
+[3] print(data)",
+        options: ["В строке [1] неверный режим",
+            "В коде отсутствует f.close() — файл останется открытым",
+            "Можно использовать with open(...) as f",
+            "В строке [2] read нельзя вызывать без аргументов",
+            "В строке [3] print не может выводить строки"],
+        correct: [1, 2],
+        multi: true,
+        comment: "Файл, открытый через open(), нужно закрывать вручную через .close() либо использовать with, который закроет его автоматически. Иначе возможна утечка ресурсов"
+    },
+    {
+        id: "files_035",
+        level: "basic",
+        type: "mistakes-mult",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Программа должна записать в файл несколько строк. Выберите все причины, почему код не будет работать, как ожидается:",
+        code: "[1] lines = ['one', 'two', 'three']\n\
+[2] with open('out.txt', 'w') as f:\n\
+[3] for line in lines:\n\
+[4]     f.write(line)",
+        options: ["В строке [2] неверный режим",
+            "В строке [3] не хватает отступа",
+            "В строке [4] не хватает отступа",
+            "В строке [4] write принимает только числа",
+            "В строке [4] строки не будут разделены"],
+        correct: [1, 2, 4],
+        multi: true,
+        comment: "Строки [3] и [4] должны иметь отступ (внутри with и внутри цикла). Кроме того, write не добавляет перевод строки — нужно писать f.write(line + '\\n')"
+    },
+    {
+        id: "files_036",
+        level: "basic",
+        type: "mistakes-mult",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Программа должна прочитать CSV-файл с заголовком и вывести данные без заголовка. Выберите все причины, почему код не будет работать, как ожидается:",
+        code: "[1] import csv\n\
+[2] with open('data.csv', 'r') as f:\n\
+[3]     reader = csv.reader(f)\n\
+[4]     for row in reader:\n\
+[5]         print(row[0])",
+        options: ["В строке [2] не хватает encoding",
+            "Заголовок не пропускается — первая строка тоже будет выведена",
+            "Перед строкой [4] нужно использовать next(reader)",
+            "В строке [5] row[0] всегда содержит число",
+            "В строке [3] csv.reader нельзя применять к файлу"],
+        correct: [1, 2],
+        multi: true,
+        comment: "Без пропуска заголовка первая строка (названия столбцов) тоже попадёт в вывод. Обычно заголовок пропускают через next(reader). row[0] — строка, не обязательно число"
+    },
+    {
+        id: "files_037",
+        level: "basic",
+        type: "mistakes-mult",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Программа должна найти среднее значение чисел из файла. Выберите все причины, почему код не будет работать, как ожидается:",
+        code: "[1] with open('nums.txt', 'r') as f:\n\
+[2]     lines = f.readlines()\n\
+[3]     avg = sum(lines) / len(lines)\n\
+[4] print(avg)",
+        options: ["В строке [1] неверный режим",
+            "В строке [2] readlines возвращает список строк, а не чисел",
+            "В строке [3] нужно использовать sum(int(x) for x in lines) / len(lines)",
+            "В строке [3] sum нельзя применять к списку",
+            "В строке [4] print не может выводить числа"],
+        correct: [1, 2],
+        multi: true,
+        comment: "readlines() возвращает строки. sum() со строками вызовет TypeError. Нужно преобразовать элементы: sum(int(x) for x in lines)"
+    },
+    {
+        id: "files_038",
+        level: "basic",
+        type: "mistakes-mult",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Программа должна записать данные в CSV-файл с заголовком. Выберите все причины, почему код не будет работать, как ожидается:",
+        code: "[1] import csv\n\
+[2] with open('out.csv', 'w') as f:\n\
+[3]     writer = csv.writer(f)\n\
+[4]     writer.writerow('name', 'age')\n\
+[5]     writer.writerow('Anna', 20)",
+        options: ["В строке [2] неверный режим",
+            "В строке [4] writerow принимает один аргумент — список значений",
+            "В строке [5] writerow принимает один аргумент — список значений",
+            "В строке [3] csv.writer нельзя применять к файлу",
+            "В строке [4] writerow не является методом writer",
+            "В строке [2] не хватает encoding"],
+        correct: [1, 2],
+        multi: true,
+        comment: "writerow принимает один итерируемый аргумент — список значений. Запись writerow('Anna', 20) вызовет TypeError, нужно writerow(['Anna', 20])"
+    },
+    {
+        id: "files_039",
+        level: "basic",
+        type: "mistakes-mult",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Программа должна дозаписать новую строку в CSV-файл. Выберите все причины, почему код не будет работать, как ожидается:",
+        code: "[1] import csv\n\
+[2] with open('data.csv', 'w') as f:\n\
+[3]     writer = csv.writer(f)\n\
+[4]     writer.writerow('new', 10)",
+        options: ["В строке [2] неверно указан режим",
+            "В строке [4] writerow принимает один аргумент-список",
+            "В строке [3] csv.writer нельзя применять к файлу",
+            "В строке [2] не хватает encoding",
+            "Код работает корректно, ошибок нет"],
+        correct: [0, 1],
+        multi: true,
+        comment: "Для дозаписи в существующий CSV нужно открывать файл в режиме 'a'. Режим 'w' удалит прежнее содержимое. Метод writerow принимает один аргумент - список значений. Остальное написано верно"
+    },
+    {
+        id: "files_040",
+        level: "basic",
+        type: "mistakes-mult",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Программа должна округлить числа из CSV-файла вниз до целых. Выберите все причины, почему код не будет работать, как ожидается:",
+        code: "[1] import csv, math\n\
+[2] with open('data.csv', 'r') as f:\n\
+[3]     reader = csv.reader(f)\n\
+[4]     for row in reader:\n\
+[5]         print(round(row[0]))",
+        options: ["В строке [1] нельзя импортировать два модуля через запятую",
+            "В строке [5] round() выполняет математическое округление, а не вниз",
+            "В строке [5] row[0] — строка, её нужно преобразовать в число перед округлением",
+            "В строке [3] csv.reader нельзя применять к файлу",
+            "В строке [4] нельзя итерироваться по reader"],
+        correct: [1, 2],
+        multi: true,
+        comment: "Импорт import csv, math корректен. row[0] — строка, её нужно преобразовать: float(row[0]). round() округляет математически, для округления вниз нужен math.floor()"
+    },
+    {
+        id: "files_041",
+        level: "basic",
+        type: "code-read",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Что выведет код, если файл text_file.txt содержит строку 'Hello':",
+        code: "with open('text_file.txt', 'r') as f:\n\
+    data = f.read()\n\
+print(data)",
+        options: ["Hello", "'Hello'", "None", "Ошибка"],
+        correct: [0],
+        multi: false,
+        comment: "read() возвращает содержимое файла строкой. print выводит его без кавычек: Hello"
+    },
+    {
+        id: "files_042",
+        level: "basic",
+        type: "code-read",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Что выведет код, если файл nums.txt содержит строки '1\\n2\\n3\\n':",
+        code: "with open('nums.txt', 'r') as f:\n\
+    lines = f.readlines()\n\
+print(len(lines))",
+        options: ["1", "2", "3", "4"],
+        correct: [2],
+        multi: false,
+        comment: "readlines() возвращает список строк: ['1\\n', '2\\n', '3\\n']. Длина списка — 3"
+    },
+    {
+        id: "files_043",
+        level: "basic",
+        type: "code-read",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Что выведет код, если файл data.csv содержит строки 'a,b\\nc,d\\n':",
+        code: "import csv\n\
+with open('data.csv', 'r') as f:\n\
+    reader = csv.reader(f)\n\
+    for row in reader:\n\
+        print(len(row))",
+        options: ["1\\n1", "2\\n2", "4", "Ошибка"],
+        correct: [1],
+        multi: false,
+        comment: "Каждая строка CSV разбивается на два значения, поэтому len(row) для каждой строки равен 2"
+    },
+    {
+        id: "files_044",
+        level: "basic",
+        type: "code-read",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Что выведет код:",
+        code: "f = open('text_file.txt', 'r')\n\
+print(f.mode)\n\
+print(f.encoding)\n\
+f.close()",
+        options: ["r\\nUTF-8", "read\\nutf-32", "r\\nNone", "Ошибка"],
+        correct: [0],
+        multi: false,
+        comment: "Атрибут mode содержит 'r', а encoding по умолчанию — 'UTF-8' (на большинстве систем). Выведет r и UTF-8"
+    },
+    {
+        id: "files_045",
+        level: "basic",
+        type: "code-read",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Что выведет код, если файл nums.txt содержит строки '1\\n2\\n3\\n':",
+        code: "with open('nums.txt', 'r') as f:\n\
+    total = 0\n\
+    for line in f:\n\
+        total += int(line)\n\
+print(total)",
+        options: ["1", "3", "6", "Ошибка"],
+        correct: [2],
+        multi: false,
+        comment: "Каждая строка преобразуется в число и складывается: 1 + 2 + 3 = 6"
+    },
+    {
+        id: "files_046",
+        level: "basic",
+        type: "code-read",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Что выведет код, если файл nums.txt содержит строки '1\\n2\\n3\\n':",
+        code: "import math\n\
+with open('nums.txt', 'r') as f:\n\
+    nums = [int(x) for x in f]\n\
+print(math.floor(sum(nums) / len(nums)))",
+        options: ["2", "2.0", "1", "3"],
+        correct: [0],
+        multi: false,
+        comment: "Среднее (1 + 2 + 3) / 3 = 2.0, math.floor(2.0) = 2"
+    },
+    {
+        id: "files_047",
+        level: "basic",
+        type: "code-read",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Что выведет код, если файл words.txt содержит строки 'apple\\nbanana\\ncherry\\n':",
+        code: "with open('words.txt', 'r') as f:\n\
+    words = [line.strip() for line in f]\n\
+print(sorted(words, key=len)[0])",
+        options: ["apple", "banana", "cherry", "Ошибка"],
+        correct: [0],
+        multi: false,
+        comment: "Список слов без \\n: ['apple', 'banana', 'cherry']. Сортировка по длине даёт apple (5) первым. Выведет apple"
+    },
+    {
+        id: "files_048",
+        level: "basic",
+        type: "code-read",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Что выведет код, если файл data.csv содержит строки 'name,age\\nAnna,20\\nIvan,25\\n':",
+        code: "import csv\n\
+with open('data.csv', 'r') as f:\n\
+    reader = csv.reader(f)\n\
+    header = next(reader)\n\
+    count = 0\n\
+    for row in reader:\n\
+        count += 1\n\
+print(count)",
+        options: ["1", "2", "3", "Ошибка"],
+        correct: [1],
+        multi: false,
+        comment: "next(reader) пропускает заголовок. В цикле остаются две строки данных (Anna и Ivan), поэтому count = 2"
+    },
+    {
+        id: "files_049",
+        level: "basic",
+        type: "code-read",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Что выведет код, если файл text_file.txt содержит строку 'hello':",
+        code: "with open('text_file.txt', 'r') as f:\n\
+    s = f.read()\n\
+print(s.upper())",
+        options: ["hello", "HELLO", "'HELLO'", "None"],
+        correct: [1],
+        multi: false,
+        comment: "read() вернёт 'hello', upper() сделает 'HELLO'. print выведет HELLO"
+    },
+    {
+        id: "files_050",
+        level: "basic",
+        type: "code-read",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Что выведет код, если файл data.csv содержит строки '5,10\\n15,20\\n':",
+        code: "import csv\n\
+with open('data.csv', 'r') as f:\n\
+    reader = csv.reader(f)\n\
+    result = [sum(int(x) for x in row) for row in reader]\n\
+print(result)",
+        options: ["[15, 35]", "[5, 10, 15, 20]", "['510', '1520']", "Ошибка"],
+        correct: [0],
+        multi: false,
+        comment: "Каждая строка CSV — список строк. Внутренний sum преобразует в числа и складывает: 5+10=15, 15+20=35. Результат [15, 35]"
+    },
+    {
+        id: "files_051",
+        level: "basic",
+        type: "code-choice",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Выберите код, который правильно открывает файл для чтения и автоматически закрывает его после работы",
+        options: ["f = open('data.txt', 'r')\ndata = f.read()",
+            "with open('data.txt', 'r') as f:\n\tdata = f.read()",
+            "f = open('data.txt', 'w')\ndata = f.read()",
+            "with open('data.txt', 'w') as f:\n\tdata = f.read()"],
+        correct: [1],
+        multi: false,
+        comment: "Контекстный менеджер with с режимом 'r' правильно открывает файл для чтения и закрывает автоматически. Режим 'w' не подходит для чтения"
+    },
+    {
+        id: "files_052",
+        level: "basic",
+        type: "code-choice",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Выберите код, который дозаписывает строку в конец существующего файла log.txt",
+        options: ["with open('log.txt', 'r') as f:\n\tf.write('new\\n')",
+            "with open('log.txt', 'w') as f:\n\tf.write('new\\n')",
+            "with open('log.txt', 'a') as f:\n\tf.write('new\\n')",
+            "with open('log.txt', 'x') as f:\n\tf.write('new\\n')"],
+        correct: [2],
+        multi: false,
+        comment: "Режим 'a' (append) добавляет строку в конец, не удаляя существующее содержимое. 'w' очищает файл, 'r' — только чтение, 'x' — создаёт новый файл"
+    },
+    {
+        id: "files_053",
+        level: "basic",
+        type: "code-choice",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Выберите код, который читает CSV-файл и выводит все строки, кроме заголовка",
+        options: ["import csv\nwith open('data.csv', 'r') as f:\n\treader = csv.reader(f)\n\tfor row in reader:\n\t\tprint(row)",
+            "import csv\nwith open('data.csv', 'r') as f:\n\treader = csv.reader(f)\n\tnext(reader)\n\tfor row in reader:\n\t\tprint(row)",
+            "import csv\nwith open('data.csv', 'r') as f:\n\treader = csv.reader(f)\n\tprint(reader)",
+            "import csv\nwith open('data.csv', 'r') as f:\n\tfor row in csv.reader(f):\n\t\tprint(row[0])"],
+        correct: [1],
+        multi: false,
+        comment: "next(reader) пропускает первую строку (заголовок), после чего цикл выводит только данные. Первый вариант выводит и заголовок, третий — объект reader, четвёртый — только первый столбец"
+    },
+    {
+        id: "files_054",
+        level: "basic",
+        type: "code-add",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Как дополнить код, чтобы он прочитал всё содержимое файла и вывел его, если уже написан следующий код:",
+        code: "with open('text_file.txt', 'r') as f:\n\
+    data =",
+        options: ["f.read()\nprint(data)",
+            "f.readline()\nprint(data)",
+            "f.readlines()\nprint(data)",
+            "f.write()\nprint(data)"],
+        correct: [0],
+        multi: false,
+        comment: "f.read() читает весь файл одной строкой. readline() читает только первую строку, readlines() — список строк, write() записывает"
+    },
+    {
+        id: "files_055",
+        level: "basic",
+        type: "code-add",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Как дополнить код, чтобы посчитать сумму всех целых чисел из файла nums.txt, если уже написан следующий код:",
+        code: "with open('nums.txt', 'r') as f:\n\
+    total = 0\n\
+    for line in f:\n\
+        total +=",
+        options: ["line",
+            "int(line)",
+            "line.strip()",
+            "float(line.strip())"],
+        correct: [1],
+        multi: false,
+        comment: "Строки из файла нужно преобразовать в числа: int(line). Без преобразования сложение строки с числом вызовет TypeError. int() корректно обрабатывает \\n на конце"
+    },
+    {
+        id: "files_056",
+        level: "basic",
+        type: "code-add",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Как дополнить код, чтобы записать в CSV-файл строку ['Anna', 20] с заголовком, если уже написан следующий код:",
+        code: "import csv\n\
+with open('out.csv', 'w', newline='') as f:\n\
+    writer = csv.writer(f)\n\
+    writer.writerow(['name', 'age'])\n\
+    writer.",
+        options: ["writerow(['Anna', 20])",
+            "writerow('Anna', 20)",
+            "write(['Anna', 20])",
+            "writerow('Anna')\n\twriterow(20)"],
+        correct: [0],
+        multi: false,
+        comment: "writerow принимает один итерируемый аргумент — список значений: writerow(['Anna', 20]). Вариант с двумя аргументами вызовет TypeError"
+    },
+    {
+        id: "files_057",
+        level: "basic",
+        type: "code-add",
+        topic: "files",
+        sr: ["sr1"],
+        text: "Как дополнить код, чтобы найти среднее значение чисел из CSV-файла, где каждая строка — одно число в первом столбце, если уже написан следующий код:",
+        code: "import csv\n\
+with open('data.csv', 'r') as f:\n\
+    reader = csv.reader(f)\n\
+    nums = [float(row[0]) for row in reader]\n\
+avg =",
+        options: ["sum(nums)",
+            "sum(nums) / len(nums)",
+            "len(nums)",
+            "max(nums)"],
+        correct: [1],
+        multi: false,
+        comment: "Среднее — сумма, делённая на количество: sum(nums) / len(nums). Вариант sum(nums) даёт сумму, len(nums) — количество, max(nums) — максимум"
+    },
 ];
