@@ -16,18 +16,18 @@
     <div id="screen-home" class="screen active">
         <h1>Привет, <span id="username">студент</span>!</h1>
         <p>Выбери уровень, и вперёд.</p>
-        <button class="btn" data-level="start">Начальный</button>
-        <button class="btn" data-level="basic">Базовый</button>
+        <button class="btn btn-primary" data-level="start">Начальный</button>
+        <button class="btn btn-primary" data-level="basic">Базовый</button>
     </div>
 
     <!-- ЭКРАН 2: Меню режимов -->
     <div id="screen-menu" class="screen">
         <button class="back" data-back="home">← Назад</button>
         <h2>Режимы</h2>
-        <button class="btn" data-mode="bank">Банк заданий</button>
-        <button class="btn" data-mode="sr">Подготовка к СР</button>
-        <button class="btn" data-mode="topic">Выбор темы</button>
-        <button class="btn" data-mode="random">Случайный тест</button>
+        <button class="btn" data-mode="bank">📚 Банк заданий</button>
+        <button class="btn" data-mode="sr">📝 Подготовка к СР</button>
+        <button class="btn" data-mode="topic">🎯 Выбор темы</button>
+        <button class="btn" data-mode="random">🎲 Случайный тест</button>
     </div>
 
     <!-- ЭКРАН 3: Выбор параметра -->
@@ -43,7 +43,7 @@
         <h2>Сколько заданий?</h2>
         <p id="count-hint"></p>
         <select id="count-select"></select>
-        <button class="btn" id="btn-start-count">Начать</button>
+        <button class="btn btn-primary" id="btn-start-count">Начать</button>
     </div>
 
     <!-- ЭКРАН 4: Тест -->
