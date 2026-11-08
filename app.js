@@ -34,7 +34,9 @@ const state = {
   questions: [],        // массив вопросов текущего теста
   answers: {},          // { qid: [индексы выбранных] }
   current: 0,            // индекс текущего вопроса
-  returnTo: "menu"      // куда вернуться с экрана теста/результатов
+  returnTo: "menu",      // куда вернуться с экрана теста/результатов
+  pendingPool: [],      // пул, из которого будем брать задания
+  pendingReturnTo: null
 };
 
 // ============ УТИЛИТЫ ============
@@ -116,19 +118,50 @@ function renderPicker() {
       if (state.mode === "bank") pred = q => q.type === item.id;
       if (state.mode === "sr") pred = q => q.sr.includes(item.id);
       if (state.mode === "topic") pred = q => q.topic === item.id;
-      const qs = pickQuestions(pred);
-      if (qs.length === 0) {
+
+      // только фильтр по уровню и категории, без перемешивания и обрезки
+      const pool = QUESTIONS.filter(q => q.level === state.level && pred(q));
+
+      if (pool.length === 0) {
         alert("По этому фильтру пока нет заданий для выбранного уровня.");
         return;
       }
-      state.returnTo = "picker";   // тест запущен из пикера — назад в пикер
-      startTest(qs);
+
+      state.pendingPool = pool;
+      state.returnTo = "picker";   // с экрана количества «назад» — в пикер
+      renderCountPicker();
     });
     list.appendChild(b);
   });
 
   show("picker");
 }
+
+function renderCountPicker() {
+  const max = Math.min(15, state.pendingPool.length);
+  const select = $("#count-select");
+  select.innerHTML = "";
+  for (let i = 1; i <= max; i++) {
+    const opt = document.createElement("option");
+    opt.value = i;
+    opt.textContent = i;
+    if (i === max) opt.selected = true;   // по умолчанию — максимум
+    select.appendChild(opt);
+  }
+  $("#count-hint").textContent =
+    `Доступно заданий: ${state.pendingPool.length}`;
+  show("count");
+}
+
+$("#btn-start-count").addEventListener("click", () => {
+  const n = parseInt($("#count-select").value, 10);
+  const qs = shuffle(state.pendingPool).slice(0, n);
+  startTest(qs);
+});
+
+$("#btn-count-back").addEventListener("click", () => {
+  show("picker");
+});
 
 // ============ ТЕСТ ============
 function startTest(questions) {
@@ -288,6 +321,7 @@ document.querySelectorAll("[data-back]").forEach(btn => {
     if (target === "menu") show("menu");
   });
 });
+
 $("#btn-results-back").addEventListener("click", () => {
   show(state.returnTo);
 });

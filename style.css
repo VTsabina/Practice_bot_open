@@ -211,3 +211,14 @@ h2 {
     background: var(--tg-hint);
     border-radius: 3px;
 }
+
+#count-select {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid var(--tg-secondary);
+    background: var(--tg-bg);
+    color: var(--tg-text);
+    margin: 12px 0;
+}
