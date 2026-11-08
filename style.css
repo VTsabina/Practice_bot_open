@@ -145,43 +145,56 @@ h2 {
 }
 
 .map-item {
-    width: 34px;
-    height: 34px;
+    width: 38px;
+    /* было 34 */
+    height: 38px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 8px;
     background: var(--tg-secondary);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.07), rgba(0, 0, 0, 0.07));
+    /* темнее, как кнопки */
     cursor: pointer;
     font-size: 14px;
+    font-weight: 500;
+    transition: background 0.1s ease, outline 0.1s ease;
 }
 
 .map-item.answered {
-    background: var(--tg-btn);
-    color: var(--tg-btn-text);
+    outline: 2px solid var(--brand);
+    outline-offset: -2px;
+    background: var(--tg-secondary);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.07), rgba(0, 0, 0, 0.07));
 }
 
 .map-item.current {
-    outline: 2px solid var(--tg-text);
+    background: var(--brand);
+    background-image: none;
+    color: var(--brand-text);
+    outline: none;
+    font-weight: 700;
 }
 
 /* Вопрос */
 .question-text {
     font-size: 17px;
-    margin-bottom: 12px;
+    line-height: 1.55;
+    margin-bottom: 16px;
     white-space: pre-wrap;
 }
 
 .question-code {
     background: #1e1e1e;
-    /* тёмный фон, как в IDE */
     padding: 12px;
     border-radius: 10px;
-    margin-bottom: 12px;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    margin-bottom: 12px;
     font-size: 13px;
     line-height: 1.5;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    /* ← добавить */
 }
 
 .question-code code {
@@ -201,6 +214,12 @@ h2 {
     background: var(--tg-secondary);
     border-radius: 10px;
     cursor: pointer;
+}
+
+.option.selected {
+    outline: 2px solid var(--brand);
+    outline-offset: -2px;
+    background: rgba(222, 255, 5, 0.12);
 }
 
 .option input {
@@ -228,14 +247,23 @@ h2 {
     border: none;
     border-radius: 10px;
     padding: 10px 16px;
+    font-size: 15px;
     font-weight: 600;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#btn-check:active {
+    filter: brightness(0.92);
+    transform: scale(0.98);
 }
 
 .test-nav {
     display: flex;
     justify-content: space-between;
     margin-top: 16px;
+    margin-bottom: 16px;
+    /* ← добавить */
 }
 
 .test-nav button {
@@ -245,6 +273,11 @@ h2 {
     padding: 10px 16px;
     cursor: pointer;
     color: var(--tg-text);
+}
+
+.test-nav button:disabled {
+    opacity: 0.4;
+    cursor: default;
 }
 
 /* Результаты */

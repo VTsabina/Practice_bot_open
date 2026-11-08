@@ -223,6 +223,7 @@ function renderTest() {
   q.options.forEach((opt, idx) => {
     const label = document.createElement("label");
     label.className = "option";
+    if (selected.includes(idx)) label.classList.add("selected");
     const input = document.createElement("input");
     input.type = q.multi ? "checkbox" : "radio";
     input.name = "q_" + q.id;
