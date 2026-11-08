@@ -43,6 +43,14 @@ const state = {
 const $ = (sel) => document.querySelector(sel);
 
 // ============ СТАРТ ============
+const isDark = tg?.colorScheme === 'dark';
+const link = document.createElement('link');
+link.rel = 'stylesheet';
+link.href = isDark
+  ? 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css'
+  : 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css';
+document.head.appendChild(link);
+
 const tg = window.Telegram?.WebApp;
 if (tg) {
   tg.ready();
@@ -200,10 +208,14 @@ function renderTest() {
   area.appendChild(text);
 
   if (q.code) {
-    const code = document.createElement("div");
-    code.className = "question-code";
-    code.textContent = q.code;
-    area.appendChild(code);
+    const pre = document.createElement("pre");
+    pre.className = "question-code";
+    const codeEl = document.createElement("code");
+    codeEl.className = "language-python";
+    codeEl.textContent = q.code;
+    pre.appendChild(codeEl);
+    area.appendChild(pre);
+    if (window.hljs) hljs.highlightElement(codeEl);
   }
 
   const selected = state.answers[q.id] || [];
