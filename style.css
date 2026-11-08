@@ -1,20 +1,26 @@
 :root {
     --tg-bg: var(--tg-theme-bg-color, #ffffff);
-    --tg-text: var(--tg-theme-text-color, #000000);
+    --tg-text: var(--tg-theme-text-color, #0a0a0a);
+    --tg-secondary: var(--tg-theme-secondary-bg-color, #f4f4f4);
     --tg-hint: var(--tg-theme-hint-color, #999999);
-    --tg-btn: var(--tg-theme-button-color, #3390ec);
-    --tg-btn-text: var(--tg-theme-button-text-color, #ffffff);
-    --tg-secondary: var(--tg-theme-secondary-bg-color, #f0f0f0);
+
+    --brand: #deff05;
+    --brand-text: #0a0a0a;
+
+    --radius: 14px;
+    --gap: 16px;
 }
 
 body {
     background: var(--tg-bg);
     color: var(--tg-text);
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     margin: 0;
-    padding: 16px;
-    padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    padding: 20px 16px;
+    padding-bottom: calc(20px + env(safe-area-inset-bottom, 0px));
     box-sizing: border-box;
+    font-size: 16px;
+    line-height: 1.5;
 }
 
 .screen {
@@ -25,31 +31,78 @@ body {
     display: block;
 }
 
-h1,
+h1 {
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0 0 8px;
+    line-height: 1.2;
+}
+
 h2 {
-    margin-top: 0;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 12px;
+    line-height: 1.3;
 }
 
 .btn {
     display: block;
     width: 100%;
-    padding: 14px;
-    margin: 8px 0;
+    padding: 16px;
+    margin: 10px 0;
     font-size: 16px;
-    background: var(--tg-btn);
-    color: var(--tg-btn-text);
+    font-weight: 600;
+    background: var(--brand);
+    color: var(--brand-text);
     border: none;
-    border-radius: 10px;
+    border-radius: var(--radius);
     cursor: pointer;
+    transition: transform 0.08s ease, filter 0.08s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.btn:active {
+    transform: scale(0.98);
+    filter: brightness(0.92);
+}
+
+.btn:disabled {
+    opacity: 0.4;
+    cursor: default;
 }
 
 .back {
     background: none;
     border: none;
-    color: var(--tg-btn);
+    color: var(--tg-hint);
     font-size: 15px;
+    font-weight: 500;
     padding: 8px 0;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.back:active {
+    opacity: 0.6;
+}
+
+#screen-home {
+    padding-top: 24px;
+}
+
+#screen-home p {
+    color: var(--tg-hint);
+    margin: 0 0 28px;
+    font-size: 15px;
+}
+
+#screen-home .btn {
+    margin: 12px 0;
+}
+
+#screen-menu h2 {
+    margin-top: 8px;
+    margin-bottom: 20px;
 }
 
 /* Карта вопросов */
