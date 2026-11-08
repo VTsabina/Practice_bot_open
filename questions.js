@@ -2096,7 +2096,7 @@ else:\n\
         sr: ["sr4"],
         text: "Какой код вернет количество элементов в списке my_list?",
         options: ["print(my_list)", "len(my_list)", "my_list.len()", "count(my_list)"],
-        correct: [3],
+        correct: [1],
         multi: false,
         comment: "Функция len() возвращает количество элементов в коллекции"
     },
