@@ -51,13 +51,6 @@ if (tg) {
   const user = tg.initDataUnsafe?.user;
   if (user) $("#username").textContent = user.first_name;
 }
-const isDark = tg?.colorScheme === 'dark';
-const link = document.createElement('link');
-link.rel = 'stylesheet';
-link.href = isDark
-  ? 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css'
-  : 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css';
-document.head.appendChild(link);
 
 function show(screenId) {
   document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
