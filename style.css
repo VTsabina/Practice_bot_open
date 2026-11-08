@@ -301,14 +301,76 @@ h2 {
     color: #e74c3c;
 }
 
-.result-detail {
-    display: none;
-    margin-top: 10px;
+#results-summary {
+    text-align: center;
+    margin: 8px 0 28px;
+}
+
+.score-label {
     font-size: 14px;
+    color: var(--tg-hint);
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.score-value {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 4px;
+}
+
+.score-number {
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.score-total {
+    font-size: 20px;
+    color: var(--tg-hint);
+    font-weight: 500;
+}
+
+.score-high {
+    color: #2e9e5b;
+}
+
+.score-mid {
+    color: #d98a2b;
+}
+
+.score-low {
+    color: #c94a4a;
+}
+
+.result-detail {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.25s ease, opacity 0.2s ease, margin-top 0.25s ease, padding-top 0.25s ease;
+    margin-top: 0;
+    padding-top: 0;
+    width: 100%;
+    border-top: 1px solid transparent;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.result-detail>div {
+    margin-bottom: 8px;
+}
+
+.result-detail>div:last-child {
+    margin-bottom: 0;
 }
 
 .result-item.open .result-detail {
-    display: block;
+    max-height: 600px;
+    opacity: 1;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top-color: rgba(0, 0, 0, 0.06);
 }
 
 .option-text {
@@ -343,4 +405,86 @@ h2 {
     background: var(--tg-bg);
     color: var(--tg-text);
     margin: 12px 0;
+}
+
+.mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.mark.ok {
+    background: #2e9e5b;
+    color: #ffffff;
+}
+
+.mark.fail {
+    background: #c94a4a;
+    color: #ffffff;
+}
+
+.result-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex: 1;
+    margin-left: 10px;
+    line-height: 1.4;
+}
+
+/* При раскрытии — показываем полностью */
+.result-item.open .result-title {
+    display: block;
+    -webkit-line-clamp: unset;
+    overflow: visible;
+}
+
+/* Сам item — flex, чтобы бейдж и заголовок стояли в ряд */
+.result-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 14px;
+    margin: 10px 0;
+    background: var(--tg-secondary);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.04));
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.result-detail {
+    display: none;
+    width: 100%;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.result-item.open .result-detail {
+    display: block;
+}
+
+#screen-results {
+    padding-top: 24px;
+}
+
+#results-summary {
+    margin: 8px 0 28px;
+}
+
+#results-list {
+    margin-bottom: 24px;
+}
+
+#screen-results .btn {
+    margin: 10px 0;
 }

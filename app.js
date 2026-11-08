@@ -293,9 +293,14 @@ function renderResults() {
 
     const mark = document.createElement("span");
     mark.className = "mark " + (isCorrect ? "ok" : "fail");
-    mark.textContent = isCorrect ? "✔ " : "✘ ";
+    mark.textContent = isCorrect ? "✔" : "✘";
+
+    const title = document.createElement("span");
+    title.className = "result-title";
+    title.textContent = `Вопрос ${i + 1}: ${q.text}`;
+
     item.appendChild(mark);
-    item.appendChild(document.createTextNode(`Вопрос ${i + 1}: ${q.text}`));
+    item.appendChild(title);
 
     const detail = document.createElement("div");
     detail.className = "result-detail";
@@ -315,7 +320,19 @@ function renderResults() {
     list.appendChild(item);
   });
 
-  $("#results-summary").textContent = `Правильно: ${ok} из ${state.questions.length}`;
+  const total = state.questions.length;
+  const percent = total > 0 ? Math.round((ok / total) * 100) : 0;
+
+  let colorClass = "score-low";
+  if (percent >= 80) colorClass = "score-high";
+  else if (percent >= 50) colorClass = "score-mid";
+
+  $("#results-summary").innerHTML =
+    `<div class="score-label">Твой результат</div>` +
+    `<div class="score-value">` +
+    `<span class="score-number ${colorClass}">${ok}</span>` +
+    `<span class="score-total">/ ${total}</span>` +
+    `</div>`;
 }
 
 // Повторно те же задания
