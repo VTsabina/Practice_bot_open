@@ -13,6 +13,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     margin: 0;
     padding: 16px;
+    padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
     box-sizing: border-box;
 }
 
@@ -196,4 +197,17 @@ h2 {
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     font-size: 14px;
     line-height: 1.4;
+}
+
+.question-code::-webkit-scrollbar {
+    height: 6px;
+}
+
+.question-code::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.question-code::-webkit-scrollbar-thumb {
+    background: var(--tg-hint);
+    border-radius: 3px;
 }

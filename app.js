@@ -40,6 +40,15 @@ const state = {
 // ============ УТИЛИТЫ ============
 const $ = (sel) => document.querySelector(sel);
 
+// ============ СТАРТ ============
+const tg = window.Telegram?.WebApp;
+if (tg) {
+  tg.ready();
+  tg.expand();
+  const user = tg.initDataUnsafe?.user;
+  if (user) $("#username").textContent = user.first_name;
+}
+
 function show(screenId) {
   document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
   $("#screen-" + screenId).classList.add("active");
@@ -73,12 +82,15 @@ document.querySelectorAll("#screen-menu .btn").forEach(btn => {
   btn.addEventListener("click", () => {
     state.mode = btn.dataset.mode;
     if (state.mode === "random") {
-      state.returnTo = "menu";          // у random пикера нет
+      state.returnTo = "menu";
       const qs = pickQuestions(() => true);
-      if (qs.length === 0) { alert("Для этого уровня пока нет заданий."); return; }
+      if (qs.length === 0) {
+        alert("Для этого уровня пока нет заданий.");
+        return;
+      }
       startTest(qs);
     } else {
-      state.returnTo = "menu";          // при входе в пикер «назад» ведёт в меню
+      state.returnTo = "menu";
       renderPicker();
     }
   });
@@ -125,6 +137,7 @@ function startTest(questions) {
   state.current = 0;
   renderTest();
   show("test");
+  if (tg) tg.enableClosingConfirmation();
 }
 
 function renderTest() {
@@ -194,12 +207,25 @@ $("#btn-prev").addEventListener("click", () => { state.current--; renderTest(); 
 $("#btn-next").addEventListener("click", () => { state.current++; renderTest(); });
 $("#btn-test-back").addEventListener("click", () => {
   show(state.returnTo);   // "picker" или "menu"
+  if (tg) tg.disableClosingConfirmation();
 });
 
 // Проверка
 $("#btn-check").addEventListener("click", () => {
+  const total = state.questions.length;
+  const answered = state.questions.filter(q => {
+    const a = state.answers[q.id];
+    return a && a.length > 0;
+  }).length;
+
+  if (answered < total) {
+    const ok = confirm(`Отвечено ${answered} из ${total}. Всё равно проверить?`);
+    if (!ok) return;
+  }
+
   renderResults();
   show("results");
+  if (tg) tg.disableClosingConfirmation();
 });
 
 // ============ РЕЗУЛЬТАТЫ ============
@@ -251,6 +277,7 @@ $("#btn-retry").addEventListener("click", () => {
   state.current = 0;
   renderTest();
   show("test");
+  if (tg) tg.enableClosingConfirmation();
 });
 
 // Кнопки «назад»
@@ -265,11 +292,3 @@ $("#btn-results-back").addEventListener("click", () => {
   show(state.returnTo);
 });
 
-// ============ СТАРТ ============
-const tg = window.Telegram?.WebApp;
-if (tg) {
-  tg.ready();
-  tg.expand();
-  const user = tg.initDataUnsafe?.user;
-  if (user) $("#username").textContent = user.first_name;
-}
