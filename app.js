@@ -29,7 +29,7 @@ const TOPICS = [
 
 // ============ СОСТОЯНИЕ ============
 const state = {
-  level: null,          // "basic" | "advanced"
+  level: null,          // "start" | "basic" | "advanced"
   mode: null,           // "bank" | "sr" | "topic" | "random"
   questions: [],        // массив вопросов текущего теста
   answers: {},          // { qid: [индексы выбранных] }
