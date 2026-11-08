@@ -91,10 +91,16 @@ h2 {
     background: var(--tg-secondary);
     padding: 10px;
     border-radius: 8px;
-    font-family: monospace;
-    white-space: pre-wrap;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    white-space: pre;
+    /* было: pre-wrap */
+    overflow-x: auto;
+    /* горизонтальный скролл */
+    -webkit-overflow-scrolling: touch;
+    /* плавный скролл на iOS */
     margin-bottom: 12px;
     font-size: 14px;
+    line-height: 1.4;
 }
 
 .option {
@@ -180,4 +186,14 @@ h2 {
 
 .result-item.open .result-detail {
     display: block;
+}
+
+.option-text {
+    white-space: pre-wrap;
+    /* сохраняет \n и пробелы */
+    tab-size: 4;
+    /* \t = 4 пробела */
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 14px;
+    line-height: 1.4;
 }

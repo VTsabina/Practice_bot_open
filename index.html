@@ -14,8 +14,8 @@
     <div id="screen-home" class="screen active">
         <h1>Привет, <span id="username">студент</span>!</h1>
         <p>Выбери уровень, и вперёд.</p>
-        <button class="btn" data-level="basic">Начальный</button>
-        <button class="btn" data-level="advanced">Базовый</button>
+        <button class="btn" data-level="start">Начальный</button>
+        <button class="btn" data-level="basic">Базовый</button>
     </div>
 
     <!-- ЭКРАН 2: Меню режимов -->
@@ -37,7 +37,7 @@
 
     <!-- ЭКРАН 4: Тест -->
     <div id="screen-test" class="screen">
-        <button class="back" data-back="menu">← Выйти</button>
+        <button class="back" id="btn-test-back">← Назад</button>
         <div class="test-header">
             <span id="test-progress">Вопрос 1 из 10</span>
             <button id="btn-check">Проверить</button>
@@ -56,7 +56,7 @@
         <p id="results-summary"></p>
         <div id="results-list"></div>
         <button class="btn" id="btn-retry">Пройти ещё раз</button>
-        <button class="btn" data-back="menu">В меню</button>
+        <button class="btn" id="btn-results-back">← Назад</button>
     </div>
 
     <script src="questions.js"></script>

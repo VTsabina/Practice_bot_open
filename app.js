@@ -1,6 +1,6 @@
 // ============ ДАННЫЕ ============
 // Формат: correct — массив индексов (для multi — несколько, для single — один).
-// type: один из 10 типов (пока условные названия). topic: одна из 9 тем.
+// type: один из 9 типов (пока условные названия). topic: одна из 9 тем.
 // sr: массив СР, к которым относится. level: basic | advanced.
 
 // Справочники для UI (пока условные)
@@ -33,7 +33,8 @@ const state = {
   mode: null,           // "bank" | "sr" | "topic" | "random"
   questions: [],        // массив вопросов текущего теста
   answers: {},          // { qid: [индексы выбранных] }
-  current: 0            // индекс текущего вопроса
+  current: 0,            // индекс текущего вопроса
+  returnTo: "menu"      // куда вернуться с экрана теста/результатов
 };
 
 // ============ УТИЛИТЫ ============
@@ -72,8 +73,12 @@ document.querySelectorAll("#screen-menu .btn").forEach(btn => {
   btn.addEventListener("click", () => {
     state.mode = btn.dataset.mode;
     if (state.mode === "random") {
-      startTest(pickQuestions(() => true));
+      state.returnTo = "menu";          // у random пикера нет
+      const qs = pickQuestions(() => true);
+      if (qs.length === 0) { alert("Для этого уровня пока нет заданий."); return; }
+      startTest(qs);
     } else {
+      state.returnTo = "menu";          // при входе в пикер «назад» ведёт в меню
       renderPicker();
     }
   });
@@ -93,7 +98,7 @@ function renderPicker() {
   items.forEach(item => {
     const b = document.createElement("button");
     b.className = "btn";
-    b.textContent = item.name;
+    b.textContent = item.short || item.name;
     b.addEventListener("click", () => {
       let pred;
       if (state.mode === "bank") pred = q => q.type === item.id;
@@ -104,6 +109,7 @@ function renderPicker() {
         alert("По этому фильтру пока нет заданий для выбранного уровня.");
         return;
       }
+      state.returnTo = "picker";   // тест запущен из пикера — назад в пикер
       startTest(qs);
     });
     list.appendChild(b);
@@ -173,7 +179,10 @@ function renderTest() {
       renderTest(); // обновить карту
     });
     label.appendChild(input);
-    label.appendChild(document.createTextNode(opt));
+    const optText = document.createElement("span");
+    optText.className = "option-text";
+    optText.textContent = opt;   // textContent безопасен, \n сохранятся
+    label.appendChild(optText);
     area.appendChild(label);
   });
 
@@ -183,6 +192,9 @@ function renderTest() {
 
 $("#btn-prev").addEventListener("click", () => { state.current--; renderTest(); });
 $("#btn-next").addEventListener("click", () => { state.current++; renderTest(); });
+$("#btn-test-back").addEventListener("click", () => {
+  show(state.returnTo);   // "picker" или "menu"
+});
 
 // Проверка
 $("#btn-check").addEventListener("click", () => {
@@ -248,6 +260,9 @@ document.querySelectorAll("[data-back]").forEach(btn => {
     if (target === "home") show("home");
     if (target === "menu") show("menu");
   });
+});
+$("#btn-results-back").addEventListener("click", () => {
+  show(state.returnTo);
 });
 
 // ============ СТАРТ ============

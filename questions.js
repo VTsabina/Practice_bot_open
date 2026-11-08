@@ -3,7 +3,7 @@ const QUESTIONS = [
     {
         id: "vars_001",          // уникальный id
         level: "basic",             // "start", "basic" или "advanced"
-        type: "code-choice",              // один из 10 типов (см. TYPES в app.js) ДОДЕЛАТЬ
+        type: "code-choice",              // один из 10 типов (см. TYPES в app.js)
         topic: "vars",            // одна из 9 тем (см. TOPICS в app.js)
         sr: [],                // массив: к каким СР относится (может быть несколько)
         text: "Какой код выведет фразу 'Привет, мир!'?",
@@ -16,7 +16,7 @@ const QUESTIONS = [
     {
         id: "vars_002",          // уникальный id
         level: "basic",             // "start", "basic" или "advanced"
-        type: "theory-one",              // один из 10 типов (см. TYPES в app.js) ДОДЕЛАТЬ
+        type: "theory-one",              // один из 10 типов (см. TYPES в app.js)
         topic: "vars",            // одна из 9 тем (см. TOPICS в app.js)
         sr: [],                // массив: к каким СР относится (может быть несколько)
         text: "Как считать целое число с консоли?",
