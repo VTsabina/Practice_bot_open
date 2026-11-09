@@ -100,6 +100,8 @@ document.querySelectorAll("#screen-menu .btn").forEach(btn => {
         return;
       }
       startTest(qs);
+    } else if (state.mode === "theory") {
+      renderTheoryList();
     } else {
       state.returnTo = "menu";
       renderPicker();
@@ -162,6 +164,82 @@ function renderCountPicker() {
   show("count");
 }
 
+function renderTheoryList() {
+  const list = $("#theory-list");
+  list.innerHTML = "";
+
+  TOPICS.forEach(topic => {
+    const b = document.createElement("button");
+    b.className = "btn";
+    b.textContent = topic.short || topic.name;
+    b.addEventListener("click", () => renderTheoryDetail(topic.id));
+    list.appendChild(b);
+  });
+
+  show("theory-list");
+}
+
+function renderTheoryDetail(topicId) {
+  const data = THEORY[topicId];
+  const topic = TOPICS.find(t => t.id === topicId);
+
+  $("#theory-title").textContent = topic ? topic.name : (data?.title || "Тема");
+
+  const container = $("#theory-content");
+  container.innerHTML = "";
+
+  if (!data || !data.sections || data.sections.length === 0) {
+    const empty = document.createElement("p");
+    empty.className = "theory-empty";
+    empty.textContent = "Материал по этой теме скоро появится.";
+    container.appendChild(empty);
+    show("theory-detail");
+    return;
+  }
+
+  data.sections.forEach(sec => {
+    const block = document.createElement("div");
+    block.className = "theory-section";
+
+    if (sec.heading) {
+      const h3 = document.createElement("h3");
+      h3.textContent = sec.heading;
+      block.appendChild(h3);
+    }
+
+    if (sec.text) {
+      const p = document.createElement("p");
+      p.textContent = sec.text;
+      block.appendChild(p);
+    }
+
+    if (sec.list) {
+      const ul = document.createElement("ul");
+      sec.list.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        ul.appendChild(li);
+      });
+      block.appendChild(ul);
+    }
+
+    if (sec.code) {
+      const pre = document.createElement("pre");
+      pre.className = "question-code";
+      const codeEl = document.createElement("code");
+      codeEl.className = "language-python";
+      codeEl.textContent = sec.code;
+      pre.appendChild(codeEl);
+      block.appendChild(pre);
+      if (window.hljs) hljs.highlightElement(codeEl);
+    }
+
+    container.appendChild(block);
+  });
+
+  show("theory-detail");
+}
+
 $("#btn-start-count").addEventListener("click", () => {
   const n = parseInt($("#count-select").value, 10);
   const qs = shuffle(state.pendingPool).slice(0, n);
@@ -170,6 +248,10 @@ $("#btn-start-count").addEventListener("click", () => {
 
 $("#btn-count-back").addEventListener("click", () => {
   show("picker");
+});
+
+$("#btn-theory-back").addEventListener("click", () => {
+  show("theory-list");
 });
 
 // ============ ТЕСТ ============

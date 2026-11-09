@@ -24,10 +24,30 @@
     <div id="screen-menu" class="screen">
         <button class="back" data-back="home">← Назад</button>
         <h2>Режимы</h2>
+        <button class="btn" data-mode="theory">📖 Теория</button>
         <button class="btn" data-mode="bank">📚 Банк заданий</button>
         <button class="btn" data-mode="sr">📝 Подготовка к СР</button>
         <button class="btn" data-mode="topic">🎯 Выбор темы</button>
         <button class="btn" data-mode="random">🎲 Случайный тест</button>
+    </div>
+
+    <!-- ЭКРАН: Список тем теории -->
+    <div id="screen-theory-list" class="screen">
+        <button class="back" data-back="menu">← Назад</button>
+        <h2>Теория</h2>
+        <p class="theory-disclaimer">
+            Теория в этом разделе не заменяет учебник и является дополнением к нему.
+            Учебник можно найти по ссылке:
+            <a href="https://edu.hse.ru/course/view.php?id=133389" target="_blank">edu.hse.ru</a>
+        </p>
+        <div id="theory-list"></div>
+    </div>
+
+    <!-- ЭКРАН: Детали темы -->
+    <div id="screen-theory-detail" class="screen">
+        <button class="back" id="btn-theory-back">← К списку тем</button>
+        <h2 id="theory-title"></h2>
+        <div id="theory-content"></div>
     </div>
 
     <!-- ЭКРАН 3: Выбор параметра -->
@@ -69,6 +89,7 @@
         <button class="btn btn-primary" id="btn-results-back">← Назад</button>
     </div>
 
+    <script src="theory.js"></script>
     <script src="questions.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
