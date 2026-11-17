@@ -253,6 +253,9 @@ $("#btn-count-back").addEventListener("click", () => {
 $("#btn-theory-back").addEventListener("click", () => {
   show("theory-list");
 });
+$("#btn-theory-back-2").addEventListener("click", () => {
+  show("theory-list");
+});
 
 // ============ ТЕСТ ============
 function startTest(questions) {
